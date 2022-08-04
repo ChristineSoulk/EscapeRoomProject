@@ -1,5 +1,6 @@
 namespace DatabaseLibrary.Migrations
 {
+    using Entities;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -18,6 +19,24 @@ namespace DatabaseLibrary.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+            #region SeedingRooms 
+
+            //Room m1 = new Room()
+            //{
+            //    Title = "",
+            //    TotalPrice = ,
+            //    Description = "",
+            //    Duration = ,
+            //    Genre = "",
+            //    Capacity = "",
+            //    Difficulty = "",
+            //    HasActor = "",
+            //    Rating = "",
+            //    EscapeRate = "",
+            //    Language = ""
+            //};
+
+            #endregion SeedingRooms
         }
     }
 }
