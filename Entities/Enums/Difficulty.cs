@@ -8,5 +8,8 @@ namespace Entities.Enums
 {
     public enum Difficulty
     {
+        Beginner,
+        Intermediate,
+        Advanced
     }
 }

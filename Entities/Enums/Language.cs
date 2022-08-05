@@ -8,5 +8,9 @@ namespace Entities.Enums
 {
     public enum Language
     {
+        Greek,
+        English,
+        Spanish,
+        Italian
     }
 }
