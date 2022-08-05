@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Repositories\IPlayerRepository.cs" />
+    <Compile Include="Core\Repositories\IReservationRepository.cs" />
+    <Compile Include="Core\Repositories\IRoomRepository.cs" />
+    <Compile Include="Persistance\Repositories\PlayerRepository.cs" />
+    <Compile Include="Persistance\Repositories\ReservationRepository.cs" />
+    <Compile Include="Persistance\Repositories\RoomRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,5 +72,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

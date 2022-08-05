@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RepositoryServices.Core.Repositories;
+using RepositoryServices.Persistance.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +12,9 @@ namespace EscapeRoomApp.Controllers
     {
         public ActionResult Index()
         {
+
+            
+
             ViewBag.Title = "Home Page";
 
             return View();
