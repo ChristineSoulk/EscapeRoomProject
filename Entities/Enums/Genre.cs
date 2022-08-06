@@ -8,5 +8,12 @@ namespace Entities.Enums
 {
     public enum Genre
     {
+        Horror,
+        Comedy,
+        Thriller,
+        KidsFriendly,
+        RolePlaying,
+        SciFi,
+        Mystery
     }
 }
