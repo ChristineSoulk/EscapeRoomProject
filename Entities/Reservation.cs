@@ -12,13 +12,15 @@ namespace Entities
     {
         [Key, Column(Order = 0)]
         public int RoomId { get; set; }
+        public Room Room { get; set; }
+
 
         [Key, Column(Order = 1)]
         public int PlayerId { get; set; }
+        public Player Player { get; set; } 
+        
 
-        public Room Room { get; set; }
-
-        public Player Player { get; set; }
+        
 
         public int NumberOfPlayers { get; set; }
         public DateTime StartDate { get; set; }
@@ -28,7 +30,7 @@ namespace Entities
 
         public Reservation()
         {
-
+            
         }
 
     }

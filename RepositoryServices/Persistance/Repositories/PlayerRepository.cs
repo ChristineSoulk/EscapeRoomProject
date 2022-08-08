@@ -10,31 +10,11 @@ using System.Threading.Tasks;
 
 namespace RepositoryServices.Persistance.Repositories
 {
-    public class PlayerRepository : IPlayerRepository
+    public class PlayerRepository : GenericRepository<Player>,IPlayerRepository
     {
-        private ApplicationContext db = new ApplicationContext();
-        
-        public Player GetById(int? id)
+        public PlayerRepository(ApplicationContext context) : base(context) 
         {
-            var player = db.Players.Find(id);
-            return player;
-        }
 
-        public void Insert(Player player)
-        {
-            db.Entry(player).State = EntityState.Added;
-            Save();
-        }
-
-        public void Save()
-        {
-            db.SaveChanges();
-        }
-
-        public void Update(Player player)
-        {
-            db.Entry(player).State = EntityState.Modified;
-            Save();
         }
     }
 }

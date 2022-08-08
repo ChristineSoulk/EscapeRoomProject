@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace RepositoryServices.Core.Repositories
 {
-    public interface IRoomRepository
+    public interface IRoomRepository : IGenericRepository<Room>
     {
-        void Insert(Room room);
-        Room GetById(int? id);
-        IEnumerable<Room> GetAllRooms();
-        void Update(Room room);
-        void Delete(int? id);
-        void Save();
+        
     }
 }

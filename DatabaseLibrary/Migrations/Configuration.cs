@@ -212,9 +212,120 @@ namespace DatabaseLibrary.Migrations
             };
 
             context.Rooms.AddOrUpdate(m1, m2, m3, m4, m5, m6, m7, m8, m9, m10);
-
-
             #endregion SeedingRooms
+
+            #region SeedingPlayers
+            Player p1 = new Player()
+            {
+                FirstName = "Xristina",
+                LastName = "Soulkana",
+                Gender = "Female",
+                DateOfBirth = new DateTime(1993, 05, 28),
+                Email = "eleutherosskopeuths1@bootcamp.com",
+                PhoneNumber = "6956844367",
+            };
+            Player p2 = new Player()
+            {
+                FirstName = "Apostolis",
+                LastName = "Sandalidis",
+                Gender = "Male",
+                DateOfBirth = new DateTime(1988, 04, 27),
+                Email = "Mastoras@bootcamp.com",
+                PhoneNumber = "6954879658",
+            };
+            Player p3 = new Player()
+            {
+                FirstName = "Alexandra",
+                LastName = "Kefaloniti",
+                Gender = "Female",
+                DateOfBirth = new DateTime(1990, 07, 07),
+                Email = "eleutherosskopeuths2@bootcamp.com",
+                PhoneNumber = "6985645757",
+            };
+            Player p4 = new Player()
+            {
+                FirstName = "Kostas",
+                LastName = "Fiotakis",
+                Gender = "Male",
+                DateOfBirth = new DateTime(1992, 12, 03),
+                Email = "Kallitexnis@bootcamp.com",
+                PhoneNumber = "6925346545",
+            };
+            Player p5 = new Player()
+            {
+                FirstName = "Stefanos",
+                LastName = "Ventis",
+                Gender = "Male",
+                DateOfBirth = new DateTime(1990, 05, 06),
+                Email = "tralalitralalo@bootcamp.com",
+                PhoneNumber = "6985323218",
+            };
+            Player p6 = new Player()
+            {
+                FirstName = "Manos",
+                LastName = "Vordakis",
+                Gender = "Male",
+                DateOfBirth = new DateTime(2010, 02, 28),
+                Email = "tramparoufas@gmail.com",
+                PhoneNumber = "6954685487",
+            };
+            context.Players.AddOrUpdate(p1, p2, p3, p4, p5, p6);
+            #region Seeding Reservation
+            Reservation r1 = new Reservation()
+            {               
+                NumberOfPlayers = 4,
+                StartDate = new DateTime(2022, 08, 25, 05, 30, 00),
+                EndDate = new DateTime(2022, 08, 25, 07, 00, 00)
+            };
+            Reservation r2 = new Reservation()
+            {              
+                NumberOfPlayers = 6,
+                StartDate = new DateTime(2022, 08, 26, 07, 00, 00),
+                EndDate = new DateTime(2022, 08, 26, 09, 00, 00)
+            };
+            Reservation r3 = new Reservation()
+            {              
+                NumberOfPlayers = 3,
+                StartDate = new DateTime(2022, 08, 25, 07, 00, 00),
+                EndDate = new DateTime(2022, 08, 25, 09, 00, 00)
+            };
+            Reservation r4 = new Reservation()
+            {
+                NumberOfPlayers = 2,
+                StartDate = new DateTime(2022, 08, 27, 08, 00, 00),
+                EndDate = new DateTime(2022, 08, 27, 10, 00, 00)
+            };
+            Reservation r5 = new Reservation()
+            {
+                NumberOfPlayers = 4,
+                StartDate = new DateTime(2022, 08, 25, 06, 30, 00),
+                EndDate = new DateTime(2022, 08, 25, 08, 00, 00)
+            };
+            r1.Room = m5;
+            r1.Player = p4;
+            
+            r2.Room = m4;
+            r2.Player = p2;
+            
+            r3.Room = m7;
+            r3.Player = p1;
+           
+            r4.Room = m1;
+            r4.Player = p3;
+            
+            r5.Room = m10;
+            r5.Player = p5;
+            
+
+            context.Reservations.AddOrUpdate(r1, r2, r3, r4, r5);
+            context.SaveChanges();
+
+            #endregion
+
+
+
+
+            #endregion
         }
     }
 }

@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace RepositoryServices.Core.Repositories
 {
-    public interface IReservationRepository
+    public interface IReservationRepository : IGenericRepository<Reservation>
     {
-        void Insert(Reservation reservation);
-        Reservation GetById(int? id);
-        void Update(Reservation reservation);
-        void Delete(int? id);
-        void Save();
+        List<Reservation> GetReservations();
     }
 }

@@ -10,39 +10,17 @@ using System.Threading.Tasks;
 
 namespace RepositoryServices.Persistance.Repositories
 {
-    public class ReservationRepository : IReservationRepository
+    public class ReservationRepository : GenericRepository<Reservation>, IReservationRepository
     {
-        private ApplicationContext db = new ApplicationContext();
-       
-        public void Delete(int? id)
+        public ReservationRepository(ApplicationContext context) : base(context)
         {
-            var existing = db.Reservations.Find(id);
-            db.Entry(existing).State = EntityState.Deleted;
-            Save();
         }
-
-        public Reservation GetById(int? id)
+        public List<Reservation> GetReservations()
         {
-            var reservation = db.Reservations.Find(id);
+            var listDates = model.Include(x => x.Player).Include(y => y.Room).ToList();
 
-            return reservation;
-        }
-
-        public void Insert(Reservation reservation)
-        {
-            db.Entry(reservation).State = EntityState.Added;
-            Save();
-        }
-
-        public void Save()
-        {
-            db.SaveChanges();
-        }
-
-        public void Update(Reservation reservation)
-        {
-            db.Entry(reservation).State = EntityState.Modified;
-            Save();
+            return listDates;
+            
         }
     }
 }

@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace RepositoryServices.Core.Repositories
 {
-    public interface IPlayerRepository
+    public interface IPlayerRepository : IGenericRepository<Player>
     {
-        void Insert(Player player);
-        Player GetById(int? id);
-        void Update(Player player);
-        void Save();
+        
     }
 }
