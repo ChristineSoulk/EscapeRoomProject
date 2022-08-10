@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Reservation
+    public class Reservation : IReservation
     {
         [Key, Column(Order = 0)]
         public int RoomId { get; set; }

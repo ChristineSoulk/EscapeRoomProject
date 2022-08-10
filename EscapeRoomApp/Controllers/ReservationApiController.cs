@@ -11,9 +11,9 @@ namespace EscapeRoomApp.Controllers
     public class ReservationApiController : BaseClassApiController
     {
         [HttpGet]
-        public IEnumerable<Reservation> GetAllReservations()
+        public IEnumerable<IReservation> GetAllReservations()
         {
-            return UnitOfWork.Reservations.GetReservations().ToList();
+            return UnitOfWork.Reservations.GetDatesOfReservations().ToList();
         }
 
     }

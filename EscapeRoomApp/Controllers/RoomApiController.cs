@@ -30,13 +30,14 @@ namespace EscapeRoomApp.Controllers
             return room;
         }
         [HttpPost]
-        public void Post(Room room)
+        public IHttpActionResult Post(Room room)
         {
             if (ModelState.IsValid)
             {
                 UnitOfWork.Rooms.Insert(room);
             }
-            
+
+            return Ok();
         }
         
 

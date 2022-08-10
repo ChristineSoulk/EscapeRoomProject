@@ -19,5 +19,6 @@ namespace EscapeRoomApp.Controllers
 
             return View();
         }
+
     }
 }
