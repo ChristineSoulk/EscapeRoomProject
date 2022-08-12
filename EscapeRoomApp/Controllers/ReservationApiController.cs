@@ -11,10 +11,27 @@ namespace EscapeRoomApp.Controllers
     public class ReservationApiController : BaseClassApiController
     {
         [HttpGet]
-        public IEnumerable<IReservation> GetAllReservations()
+        public IEnumerable<Reservation> GetAllReservations()
         {
             return UnitOfWork.Reservations.GetDatesOfReservations().ToList();
         }
+        [HttpPost]
+        public IHttpActionResult MakeReservasion(int playerId, int roomId, int numberOfPlayers,DateTime gameStarts,DateTime gameEnds)
+        {
+            var player = UnitOfWork.Players.GetById(playerId);
+            var room = UnitOfWork.Rooms.GetById(roomId);
 
+            Reservation reservation = new Reservation();
+            reservation.Room = room;
+            reservation.Player = player;
+            reservation.NumberOfPlayers = numberOfPlayers;
+            reservation.GameStarts = gameStarts;
+            reservation.GameEnds = gameEnds;
+
+            UnitOfWork.Reservations.Insert(reservation);
+
+
+            return Ok();
+        }
     }
 }

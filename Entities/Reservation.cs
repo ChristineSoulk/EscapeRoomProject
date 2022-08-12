@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Reservation : IReservation
+    public class Reservation 
     {
         [Key, Column(Order = 0)]
         public int RoomId { get; set; }
@@ -23,8 +23,8 @@ namespace Entities
         
 
         public int NumberOfPlayers { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime GameStarts { get; set; }
+        public DateTime GameEnds { get; set; }
 
 
 

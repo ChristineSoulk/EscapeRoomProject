@@ -10,6 +10,6 @@ namespace RepositoryServices.Core.Repositories
     public interface IReservationRepository : IGenericRepository<Reservation>
     {
         List<Reservation> GetReservations();
-        IEnumerable<IReservation> GetDatesOfReservations();
+        IEnumerable<Reservation> GetDatesOfReservations();
     }
 }

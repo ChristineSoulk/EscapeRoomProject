@@ -274,32 +274,32 @@ namespace DatabaseLibrary.Migrations
             Reservation r1 = new Reservation()
             {               
                 NumberOfPlayers = 4,
-                StartDate = new DateTime(2022, 08, 25, 05, 30, 00),
-                EndDate = new DateTime(2022, 08, 25, 07, 00, 00)
+                GameStarts = new DateTime(2022, 08, 25, 05, 30, 00),
+                GameEnds = new DateTime(2022, 08, 25, 07, 00, 00)
             };
             Reservation r2 = new Reservation()
             {              
                 NumberOfPlayers = 6,
-                StartDate = new DateTime(2022, 08, 26, 07, 00, 00),
-                EndDate = new DateTime(2022, 08, 26, 09, 00, 00)
+                GameStarts = new DateTime(2022, 08, 26, 07, 00, 00),
+                GameEnds = new DateTime(2022, 08, 26, 09, 00, 00)
             };
             Reservation r3 = new Reservation()
             {              
                 NumberOfPlayers = 3,
-                StartDate = new DateTime(2022, 08, 25, 07, 00, 00),
-                EndDate = new DateTime(2022, 08, 25, 09, 00, 00)
+                GameStarts = new DateTime(2022, 08, 25, 07, 00, 00),
+                GameEnds = new DateTime(2022, 08, 25, 09, 00, 00)
             };
             Reservation r4 = new Reservation()
             {
                 NumberOfPlayers = 2,
-                StartDate = new DateTime(2022, 08, 27, 08, 00, 00),
-                EndDate = new DateTime(2022, 08, 27, 10, 00, 00)
+                GameStarts = new DateTime(2022, 08, 27, 08, 00, 00),
+                GameEnds = new DateTime(2022, 08, 27, 10, 00, 00)
             };
             Reservation r5 = new Reservation()
             {
                 NumberOfPlayers = 4,
-                StartDate = new DateTime(2022, 08, 25, 06, 30, 00),
-                EndDate = new DateTime(2022, 08, 25, 08, 00, 00)
+                GameStarts = new DateTime(2022, 08, 25, 06, 30, 00),
+                GameEnds = new DateTime(2022, 08, 25, 08, 00, 00)
             };
             r1.Room = m5;
             r1.Player = p4;
