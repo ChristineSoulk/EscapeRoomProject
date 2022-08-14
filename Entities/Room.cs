@@ -21,6 +21,7 @@ namespace Entities
         public double Rating { get; set; }
         public float EscapeRate { get; set; }
         public Language Language { get; set; }
+
         public Room()
         {
 

@@ -219,8 +219,6 @@ namespace DatabaseLibrary.Migrations
             {
                 FirstName = "Xristina",
                 LastName = "Soulkana",
-                Gender = "Female",
-                DateOfBirth = new DateTime(1993, 05, 28),
                 Email = "eleutherosskopeuths1@bootcamp.com",
                 PhoneNumber = "6956844367",
             };
@@ -228,8 +226,6 @@ namespace DatabaseLibrary.Migrations
             {
                 FirstName = "Apostolis",
                 LastName = "Sandalidis",
-                Gender = "Male",
-                DateOfBirth = new DateTime(1988, 04, 27),
                 Email = "Mastoras@bootcamp.com",
                 PhoneNumber = "6954879658",
             };
@@ -237,8 +233,6 @@ namespace DatabaseLibrary.Migrations
             {
                 FirstName = "Alexandra",
                 LastName = "Kefaloniti",
-                Gender = "Female",
-                DateOfBirth = new DateTime(1990, 07, 07),
                 Email = "eleutherosskopeuths2@bootcamp.com",
                 PhoneNumber = "6985645757",
             };
@@ -246,8 +240,6 @@ namespace DatabaseLibrary.Migrations
             {
                 FirstName = "Kostas",
                 LastName = "Fiotakis",
-                Gender = "Male",
-                DateOfBirth = new DateTime(1992, 12, 03),
                 Email = "Kallitexnis@bootcamp.com",
                 PhoneNumber = "6925346545",
             };
@@ -255,8 +247,6 @@ namespace DatabaseLibrary.Migrations
             {
                 FirstName = "Stefanos",
                 LastName = "Ventis",
-                Gender = "Male",
-                DateOfBirth = new DateTime(1990, 05, 06),
                 Email = "tralalitralalo@bootcamp.com",
                 PhoneNumber = "6985323218",
             };
@@ -264,8 +254,6 @@ namespace DatabaseLibrary.Migrations
             {
                 FirstName = "Manos",
                 LastName = "Vordakis",
-                Gender = "Male",
-                DateOfBirth = new DateTime(2010, 02, 28),
                 Email = "tramparoufas@gmail.com",
                 PhoneNumber = "6954685487",
             };

@@ -36,8 +36,6 @@ namespace EscapeRoomApp.Controllers
             var player = UnitOfWork.Players.GetById(newPlayerData.Id);
             player.FirstName = newPlayerData.FirstName;
             player.LastName = newPlayerData.LastName;
-            player.Gender = newPlayerData.Gender;
-            player.DateOfBirth = newPlayerData.DateOfBirth;
             player.Email = newPlayerData.Email;
             player.PhoneNumber = newPlayerData.PhoneNumber;
             UnitOfWork.Players.Update(player);
