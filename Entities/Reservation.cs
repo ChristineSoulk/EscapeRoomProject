@@ -20,11 +20,9 @@ namespace Entities
         public Player Player { get; set; } 
         
 
-        
-
         public int NumberOfPlayers { get; set; }
-        public DateTime GameStarts { get; set; }
-        public DateTime GameEnds { get; set; }
+        public DateTime GameStart { get; set; }
+        
 
 
 

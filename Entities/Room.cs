@@ -11,7 +11,6 @@ namespace Entities
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public decimal TotalPrice { get; set; }
         public string Description { get; set; }
         public int Duration { get; set; }
         public Genre Genre { get; set; }
@@ -20,11 +19,13 @@ namespace Entities
         public bool HasActor { get; set; }
         public double Rating { get; set; }
         public float EscapeRate { get; set; }
-        public Language Language { get; set; }
+        public List<Language> Languages { get; set; } = new List<Language>();
+        public bool IsActive { get; set; }
+        public Dictionary<int, decimal> PricePerPerson { get; set; } = new Dictionary<int, decimal>();
 
         public Room()
         {
-
+            
         }
     }
 }

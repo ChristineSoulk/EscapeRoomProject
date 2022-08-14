@@ -14,5 +14,7 @@ namespace RepositoryServices.Persistance.Repositories
         public RoomRepository(ApplicationContext context) : base(context)
         {
         }
+
+        
     }
 }

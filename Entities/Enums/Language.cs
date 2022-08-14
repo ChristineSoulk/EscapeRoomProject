@@ -11,6 +11,8 @@ namespace Entities.Enums
         Greek,
         English,
         Spanish,
-        Italian
+        Italian,
+        German,
+        French
     }
 }

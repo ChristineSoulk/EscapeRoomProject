@@ -3,6 +3,7 @@ namespace DatabaseLibrary.Migrations
     using Entities;
     using Entities.Enums;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -22,7 +23,6 @@ namespace DatabaseLibrary.Migrations
             Room m1 = new Room()
             {
                 Title = "Wizarding School: Fang of the Serpent",
-                TotalPrice = 120,
                 Description = "Another year at the Wizarding School brings with it new challenges. You have been summoned by the " +
                 "headmaster to find a most precious artefact which has been lost for many decades. Its whereabouts unknown, your " +
                 "search leads you to a mysterious part of the castle where no one has ventured in years.You feel danger lurking around " +
@@ -36,13 +36,21 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Language = Language.English
+                Languages = { Language.Greek, Language.English, Language.Spanish },
+                IsActive = true,
+                PricePerPerson =
+                {
+                    {2, 16 },
+                    {3, 14 },
+                    {4, 12 },
+                    {5, 11 },
+                    {6, 10 }
+                }
             };
 
             Room m2 = new Room()
             {
                 Title = "Blackwing’s Cave",
-                TotalPrice = 140,
                 Description = "Holy padlocks, Blackwing! The evil games-master Doctor Drakker has broken out of jail and is on the loose in " +
                 "Knightsbane City, swearing revenge on his arch nemesis - Blackwing, dark crusader of justice. Drakker's goons have tracked " +
                 "down the location of Blackwing's secret base and riddled it with an onslaught of fiendishly twisted puzzles,trapping you - " +
@@ -57,13 +65,21 @@ namespace DatabaseLibrary.Migrations
                 HasActor = true,
                 Rating = 0,
                 EscapeRate = 0,
-                Language = Language.English
+                Languages = { Language.Greek, Language.English, Language.French },
+                IsActive = true,
+                PricePerPerson =
+                {
+                    {2, 25 },
+                    {3, 22 },
+                    {4, 20 },
+                    {5, 18 },
+                    {6, 17 }
+                }
             };
 
             Room m3 = new Room()
             {
                 Title = "Sherlock’s Despair",
-                TotalPrice = 130,
                 Description = "21st of October 1891, London. A dark silence hangs over 221B Baker Street. The great detective Sherlock Holmes has been " +
                 "discovered dead, washed up in the gutters outside a seedy East End opium den. Without his nemesis, the wicked Professor James Moriarty plots " +
                 "world domination from the shadows. You - Sherlock's oldest friends and faithful assistants - are now the only hope of stopping him. You've " +
@@ -77,13 +93,20 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Language = Language.English
+                Languages = { Language.Greek, Language.English},
+                IsActive = true,
+                PricePerPerson =
+                {
+                    {2, 22 },
+                    {3, 20 },
+                    {4, 18 },
+                    {5, 17 },
+                }
             };
 
             Room m4 = new Room()
             {
                 Title = "The Flying Dutchman",
-                TotalPrice = 110,
                 Description = "Avast ye! Tell me, shark-bait, have you heard the legend of The Flying Dutchman? That dreaded ship captained by the sea-devil Davy " +
                 "Jones and his undead pirate crew? You'd best start believing in ghost stories... you're in one! After your ship sinks in a great tempest you awake " +
                 "aboard the Dutchman.If you don't escape before sunrise you'll be trapped aboard her forever.Legend tells of a mythical diamond - the Heart of Calypso " +
@@ -96,13 +119,21 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Language = Language.English
+                Languages = { Language.Greek, Language.English, Language.German },
+                IsActive = true,
+                PricePerPerson =
+                {
+                    {2, 18 },
+                    {3, 16 },
+                    {4, 15 },
+                    {5, 14 },
+                    {6, 12 }
+                }
             };
 
             Room m5 = new Room()
             {
                 Title = "War on Horizon Alpha",
-                TotalPrice = 120,
                 Description = "The galaxy is in peril, trapped under the cyborg fist of the feared Alpha One faction. The imperial regime rules from the space-fortress codenamed " +
                 "Horizon Alpha, a terrifying superweapon with an impenetrable security system. You are a plucky band of rebels - the best in the parsec - chosen to infiltrate " +
                 "the Horizon Alpha.In 60 minutes a massive rebel fleet will arrive through hyperspace and fire on the base, but you must manually deactivate the shields if this " +
@@ -115,13 +146,20 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Language = Language.English
+                Languages = { Language.Greek, Language.English, Language.Italian },
+                IsActive = true,
+                PricePerPerson =
+                {
+                    {2, 20 },
+                    {3, 18 },
+                    {4, 17 },
+                    {5, 15 }
+                }
             };
 
             Room m6 = new Room()
             {
                 Title = "Butcher’s Lair",
-                TotalPrice = 130,
                 Description = "Dr Vladimir Knifesblade: university professor by day, serial killer by night. He's an educated man - he knows his classical music, his literature, " +
                 "and which bits of the human body taste best. The FBI have nicknamed him 'The Butcher'. A simple dinner party invitation to you - some of his favourite students " +
                 "- fails to mention that you're the main ingredient on the menu tonight. You've become The Butcher's latest victims, or at least you will be if you don't escape " +
@@ -134,13 +172,21 @@ namespace DatabaseLibrary.Migrations
                 HasActor = true,
                 Rating = 0,
                 EscapeRate = 0,
-                Language = Language.English
+                Languages = { Language.Greek, Language.English},
+                IsActive = true,
+                PricePerPerson =
+                {
+                    {2, 25 },
+                    {3, 22 },
+                    {4, 20 },
+                    {5, 18 },
+                    {6, 17 }
+                }
             };
 
             Room m7 = new Room()
             {
                 Title = "Heist Plan",
-                TotalPrice = 110,
                 Description = "You are a gang of street racers planning a major heist in New York City. Operation: Race Day. The aim is to hit the five biggest banks in Manhattan in " +
                 "one night, under the cover of an illegal street race you'll be competing in using two of your tuned-up cars. It's daring, but it just might work. However, word travels " +
                 "fast in the criminal underworld.A rival gang have broken into your garage overnight, stolen one of your cars and wrecked the other one's engine. Now you have only one " +
@@ -153,13 +199,19 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Language = Language.English
+                Languages = { Language.Greek, Language.English, Language.French },
+                IsActive = true,
+                PricePerPerson =
+                {
+                    {2, 24 },
+                    {3, 22 },
+                    {4, 20 },
+                }
             };
 
             Room m8 = new Room()
             {
                 Title = "Patient Zero 2150",
-                TotalPrice = 100,
                 Description = "Armageddon beckons. The world’s superpowers are no more. Renegade factions vie for domination. Rogue scientists have breached all moral boundaries creating " +
                 "pathogens that create non-humans. Nerve agents so nightmarish that they corrupt physically and mentally, turning those exposed into the living dead - zombies. In the subterranean " +
                 "depths of their secret facility, the pathogen has escaped. It must be contained or all humankind, as we know it, will cease to exist. Your mission – contain the bio-threat, secure " +
@@ -171,13 +223,20 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Language = Language.English
+                Languages = { Language.Greek, Language.English, Language.Italian },
+                IsActive = true,
+                PricePerPerson =
+                {
+                    {2, 20 },
+                    {3, 18 },
+                    {4, 17 },
+                    {5, 15 }
+                }
             };
 
             Room m9 = new Room()
             {
                 Title = "Spy Heroes",
-                TotalPrice = 120,
                 Description = "You’re going undercover. Your friend James has gone off the grid and you need to check if he’s OK. You swing by his restaurant – the lights are on but James isn’t home. " +
                 "The door slams shut, trapping you inside. James liked his security high-end. A note on the table tells you that James is actually an international spy – this is all a cover for his " +
                 "espionage escapades. It’s his HQ and he has been snatched by the henchmen of his evil arch-enemy – Mr Supervillain. You must solve all the puzzles and clues in the room and deploy the " +
@@ -190,13 +249,20 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Language = Language.English
+                Languages = { Language.Greek, Language.English, Language.Spanish },
+                IsActive = true,
+                PricePerPerson =
+                {
+                    {2, 17 },
+                    {3, 15 },
+                    {4, 14 },
+                    {5, 12 },
+                }
             };
 
             Room m10 = new Room()
             {
                 Title = "Psychopath's Den",
-                TotalPrice = 130,
                 Description = "You know the instant the door slams shut behind you – bad things happen here. Evil is Omnipresent. Heart-thumping terror builds relentlessly as each nerve-shredding minute " +
                 "creeps past. Can you escape a dreadful fate or will you become another blood-stained or blood-drained statistic? Amid the gore-caked instruments of torture, hemmed in by the blood-spattered " +
                 "walls you must keep your wits as sharp as his scalpels to avoid his clutches – he is very close, somewhere in the shadows. Only by solving his crazed, fiendish puzzles can you, quite literally, " +
@@ -208,7 +274,16 @@ namespace DatabaseLibrary.Migrations
                 HasActor = true,
                 Rating = 0,
                 EscapeRate = 0,
-                Language = Language.English
+                Languages = { Language.Greek, Language.English},
+                IsActive = true,
+                PricePerPerson =
+                {
+                    {2, 25 },
+                    {3, 22 },
+                    {4, 20 },
+                    {5, 18 },
+                    {6, 17 }
+                }
             };
 
             context.Rooms.AddOrUpdate(m1, m2, m3, m4, m5, m6, m7, m8, m9, m10);
@@ -262,32 +337,27 @@ namespace DatabaseLibrary.Migrations
             Reservation r1 = new Reservation()
             {               
                 NumberOfPlayers = 4,
-                GameStarts = new DateTime(2022, 08, 25, 05, 30, 00),
-                GameEnds = new DateTime(2022, 08, 25, 07, 00, 00)
+                GameStart = new DateTime(2022, 08, 25, 05, 30, 00),
             };
             Reservation r2 = new Reservation()
             {              
                 NumberOfPlayers = 6,
-                GameStarts = new DateTime(2022, 08, 26, 07, 00, 00),
-                GameEnds = new DateTime(2022, 08, 26, 09, 00, 00)
+                GameStart = new DateTime(2022, 08, 26, 07, 00, 00),
             };
             Reservation r3 = new Reservation()
             {              
                 NumberOfPlayers = 3,
-                GameStarts = new DateTime(2022, 08, 25, 07, 00, 00),
-                GameEnds = new DateTime(2022, 08, 25, 09, 00, 00)
+                GameStart = new DateTime(2022, 08, 25, 07, 00, 00),
             };
             Reservation r4 = new Reservation()
             {
                 NumberOfPlayers = 2,
-                GameStarts = new DateTime(2022, 08, 27, 08, 00, 00),
-                GameEnds = new DateTime(2022, 08, 27, 10, 00, 00)
+                GameStart = new DateTime(2022, 08, 27, 08, 00, 00),
             };
             Reservation r5 = new Reservation()
             {
                 NumberOfPlayers = 4,
-                GameStarts = new DateTime(2022, 08, 25, 06, 30, 00),
-                GameEnds = new DateTime(2022, 08, 25, 08, 00, 00)
+                GameStart = new DateTime(2022, 08, 25, 06, 30, 00),
             };
             r1.Room = m5;
             r1.Player = p4;
