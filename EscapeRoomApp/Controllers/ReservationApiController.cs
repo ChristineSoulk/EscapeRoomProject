@@ -16,7 +16,7 @@ namespace EscapeRoomApp.Controllers
             return UnitOfWork.Reservations.GetDatesOfReservations().ToList();
         }
         [HttpPost]
-        public IHttpActionResult MakeReservasion(int playerId, int roomId, int numberOfPlayers,DateTime gameStarts,DateTime gameEnds)
+        public IHttpActionResult MakeReservation(int playerId, int roomId, int numberOfPlayers,DateTime gameStarts,DateTime gameEnds)
         {
             var player = UnitOfWork.Players.GetById(playerId);
             var room = UnitOfWork.Rooms.GetById(roomId);

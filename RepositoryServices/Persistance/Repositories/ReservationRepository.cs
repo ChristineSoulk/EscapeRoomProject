@@ -25,7 +25,7 @@ namespace RepositoryServices.Persistance.Repositories
         public IEnumerable<Reservation> GetDatesOfReservations()
         {
 
-            var listDates = model.Select(x => new { x.RoomId,x.GameStarts}).ToArray().Select(x => (Reservation) new Reservation() { RoomId = x.RoomId, GameStarts = x.GameStarts});
+            var listDates = model.Select(x => new { x.RoomId,x.GameStarts}).ToArray().Select(x => new Reservation() { RoomId = x.RoomId, GameStarts = x.GameStarts});
 
 
             return listDates;
