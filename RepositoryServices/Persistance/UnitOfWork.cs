@@ -18,17 +18,23 @@ namespace RepositoryServices.Persistance
         public IRoomRepository Rooms { get; private set; }
 
         public IReservationRepository Reservations { get; private set; }
+
+        public ILanguagePerRoomRepository LanguagesPerRoom { get; private set; }
+
+        public IPricePerRoomPerPersonRepository PricesPerRoomPerPerson { get; private set; }
         public UnitOfWork(ApplicationContext context)
         {
             db = context;
             Players = new PlayerRepository(context);
             Rooms = new RoomRepository(context);
             Reservations = new ReservationRepository(context);
+            LanguagesPerRoom = new LanguagePerRoomRepository(context);
+            PricesPerRoomPerPerson = new PricePerRoomPerPersonRepository(context);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            db.Dispose();
         }
     }
 }

@@ -52,11 +52,15 @@
   <ItemGroup>
     <Compile Include="Core\IGenericRepository.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\ILanguagePerRoomRepository.cs" />
     <Compile Include="Core\Repositories\IPlayerRepository.cs" />
+    <Compile Include="Core\Repositories\IPricePerRoomPerPersonRepository.cs" />
     <Compile Include="Core\Repositories\IReservationRepository.cs" />
     <Compile Include="Core\Repositories\IRoomRepository.cs" />
     <Compile Include="Persistance\GenericRepository.cs" />
+    <Compile Include="Persistance\Repositories\LanguagePerRoomRepository.cs" />
     <Compile Include="Persistance\Repositories\PlayerRepository.cs" />
+    <Compile Include="Persistance\Repositories\PricePerRoomPerPersonRepository.cs" />
     <Compile Include="Persistance\Repositories\ReservationRepository.cs" />
     <Compile Include="Persistance\Repositories\RoomRepository.cs" />
     <Compile Include="Persistance\UnitOfWork.cs" />

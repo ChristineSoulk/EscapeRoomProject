@@ -8,26 +8,24 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Reservation 
+    public class PricePerRoomPerPerson
     {
         [Key, Column(Order = 0)]
         public int RoomId { get; set; }
+
         public Room Room { get; set; }
 
-
         [Key, Column(Order = 1)]
-        public int PlayerId { get; set; }
-        public Player Player { get; set; } 
-        
-
         public int NumberOfPlayers { get; set; }
-        public DateTime GameStart { get; set; }
 
+        public decimal PricePerPerson { get; set; }
 
-        public Reservation()
+        //public decimal TotalPrice => NumberOfPlayers * PricePerPerson;
+
+       
+        public PricePerRoomPerPerson()
         {
-            
-        }
 
+        }
     }
 }

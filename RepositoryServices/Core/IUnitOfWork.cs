@@ -12,7 +12,10 @@ namespace RepositoryServices.Core
         IPlayerRepository Players { get; }
         IRoomRepository Rooms { get; }
         IReservationRepository Reservations { get; }
-        
+
+        ILanguagePerRoomRepository LanguagesPerRoom { get; }
+
+        IPricePerRoomPerPersonRepository PricesPerRoomPerPerson { get; }
 
     }
 }

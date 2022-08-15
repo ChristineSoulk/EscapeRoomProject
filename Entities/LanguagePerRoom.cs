@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,26 +9,13 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Reservation 
+    public class LanguagePerRoom
     {
         [Key, Column(Order = 0)]
         public int RoomId { get; set; }
         public Room Room { get; set; }
 
-
         [Key, Column(Order = 1)]
-        public int PlayerId { get; set; }
-        public Player Player { get; set; } 
-        
-
-        public int NumberOfPlayers { get; set; }
-        public DateTime GameStart { get; set; }
-
-
-        public Reservation()
-        {
-            
-        }
-
+        public Language Language { get; set; }
     }
 }

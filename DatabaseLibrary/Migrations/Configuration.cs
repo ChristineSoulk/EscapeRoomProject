@@ -36,16 +36,7 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Languages = { Language.Greek, Language.English, Language.Spanish },
-                IsActive = true,
-                PricePerPerson =
-                {
-                    {2, 16 },
-                    {3, 14 },
-                    {4, 12 },
-                    {5, 11 },
-                    {6, 10 }
-                }
+                IsActive = true
             };
 
             Room m2 = new Room()
@@ -65,16 +56,8 @@ namespace DatabaseLibrary.Migrations
                 HasActor = true,
                 Rating = 0,
                 EscapeRate = 0,
-                Languages = { Language.Greek, Language.English, Language.French },
-                IsActive = true,
-                PricePerPerson =
-                {
-                    {2, 25 },
-                    {3, 22 },
-                    {4, 20 },
-                    {5, 18 },
-                    {6, 17 }
-                }
+                IsActive = true
+              
             };
 
             Room m3 = new Room()
@@ -93,15 +76,8 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Languages = { Language.Greek, Language.English},
-                IsActive = true,
-                PricePerPerson =
-                {
-                    {2, 22 },
-                    {3, 20 },
-                    {4, 18 },
-                    {5, 17 },
-                }
+                IsActive = true
+               
             };
 
             Room m4 = new Room()
@@ -119,16 +95,8 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Languages = { Language.Greek, Language.English, Language.German },
-                IsActive = true,
-                PricePerPerson =
-                {
-                    {2, 18 },
-                    {3, 16 },
-                    {4, 15 },
-                    {5, 14 },
-                    {6, 12 }
-                }
+                IsActive = true
+               
             };
 
             Room m5 = new Room()
@@ -146,15 +114,8 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Languages = { Language.Greek, Language.English, Language.Italian },
-                IsActive = true,
-                PricePerPerson =
-                {
-                    {2, 20 },
-                    {3, 18 },
-                    {4, 17 },
-                    {5, 15 }
-                }
+                IsActive = true
+               
             };
 
             Room m6 = new Room()
@@ -172,16 +133,8 @@ namespace DatabaseLibrary.Migrations
                 HasActor = true,
                 Rating = 0,
                 EscapeRate = 0,
-                Languages = { Language.Greek, Language.English},
-                IsActive = true,
-                PricePerPerson =
-                {
-                    {2, 25 },
-                    {3, 22 },
-                    {4, 20 },
-                    {5, 18 },
-                    {6, 17 }
-                }
+                IsActive = true
+              
             };
 
             Room m7 = new Room()
@@ -199,14 +152,8 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Languages = { Language.Greek, Language.English, Language.French },
-                IsActive = true,
-                PricePerPerson =
-                {
-                    {2, 24 },
-                    {3, 22 },
-                    {4, 20 },
-                }
+                IsActive = true
+               
             };
 
             Room m8 = new Room()
@@ -223,15 +170,7 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Languages = { Language.Greek, Language.English, Language.Italian },
-                IsActive = true,
-                PricePerPerson =
-                {
-                    {2, 20 },
-                    {3, 18 },
-                    {4, 17 },
-                    {5, 15 }
-                }
+                IsActive = true
             };
 
             Room m9 = new Room()
@@ -249,15 +188,8 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                Languages = { Language.Greek, Language.English, Language.Spanish },
-                IsActive = true,
-                PricePerPerson =
-                {
-                    {2, 17 },
-                    {3, 15 },
-                    {4, 14 },
-                    {5, 12 },
-                }
+                IsActive = true
+               
             };
 
             Room m10 = new Room()
@@ -274,16 +206,8 @@ namespace DatabaseLibrary.Migrations
                 HasActor = true,
                 Rating = 0,
                 EscapeRate = 0,
-                Languages = { Language.Greek, Language.English},
-                IsActive = true,
-                PricePerPerson =
-                {
-                    {2, 25 },
-                    {3, 22 },
-                    {4, 20 },
-                    {5, 18 },
-                    {6, 17 }
-                }
+                IsActive = true
+              
             };
 
             context.Rooms.AddOrUpdate(m1, m2, m3, m4, m5, m6, m7, m8, m9, m10);
@@ -383,6 +307,97 @@ namespace DatabaseLibrary.Migrations
 
 
 
+            #endregion
+
+
+            #region SeedingLanguages
+            LanguagePerRoom l1 = new LanguagePerRoom() { Room = m1, Language = Language.Greek };
+            LanguagePerRoom l2 = new LanguagePerRoom() { Room = m1, Language = Language.English };
+            LanguagePerRoom l3 = new LanguagePerRoom() { Room = m1, Language = Language.Spanish };
+            LanguagePerRoom l4 = new LanguagePerRoom() { Room = m2, Language = Language.Greek };
+            LanguagePerRoom l5 = new LanguagePerRoom() { Room = m2, Language = Language.English };
+            LanguagePerRoom l6 = new LanguagePerRoom() { Room = m2, Language = Language.French };
+            LanguagePerRoom l7 = new LanguagePerRoom() { Room = m3, Language = Language.Greek };
+            LanguagePerRoom l8 = new LanguagePerRoom() { Room = m3, Language = Language.English };
+            LanguagePerRoom l9 = new LanguagePerRoom() { Room = m4, Language = Language.Greek };
+            LanguagePerRoom l10 = new LanguagePerRoom() { Room = m4, Language = Language.English };
+            LanguagePerRoom l11 = new LanguagePerRoom() { Room = m4, Language = Language.German };
+            LanguagePerRoom l12 = new LanguagePerRoom() { Room = m5, Language = Language.Greek };
+            LanguagePerRoom l13 = new LanguagePerRoom() { Room = m5, Language = Language.English };
+            LanguagePerRoom l14 = new LanguagePerRoom() { Room = m5, Language = Language.Italian };
+            LanguagePerRoom l15 = new LanguagePerRoom() { Room = m6, Language = Language.Greek };
+            LanguagePerRoom l16 = new LanguagePerRoom() { Room = m6, Language = Language.English };
+            LanguagePerRoom l17 = new LanguagePerRoom() { Room = m7, Language = Language.Greek };
+            LanguagePerRoom l18 = new LanguagePerRoom() { Room = m7, Language = Language.English };
+            LanguagePerRoom l19 = new LanguagePerRoom() { Room = m7, Language = Language.French };
+            LanguagePerRoom l20 = new LanguagePerRoom() { Room = m8, Language = Language.Greek };
+            LanguagePerRoom l21 = new LanguagePerRoom() { Room = m8, Language = Language.English };
+            LanguagePerRoom l22 = new LanguagePerRoom() { Room = m8, Language = Language.Italian };
+            LanguagePerRoom l23 = new LanguagePerRoom() { Room = m9, Language = Language.Greek };
+            LanguagePerRoom l24 = new LanguagePerRoom() { Room = m9, Language = Language.English };
+            LanguagePerRoom l25 = new LanguagePerRoom() { Room = m9, Language = Language.Spanish };
+            LanguagePerRoom l26 = new LanguagePerRoom() { Room = m10, Language = Language.Greek };
+            LanguagePerRoom l27 = new LanguagePerRoom() { Room = m10, Language = Language.English };
+
+            context.LanguagesPerRoom.AddOrUpdate(l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17,
+                l18, l19, l20, l21, l22, l23, l24, l25, l26, l27);
+            #endregion
+
+
+            #region SeedingPricePerRoom
+            PricePerRoomPerPerson price1 = new PricePerRoomPerPerson() { Room = m1, NumberOfPlayers = 2, PricePerPerson = 16 };
+            PricePerRoomPerPerson price2 = new PricePerRoomPerPerson() { Room = m1, NumberOfPlayers = 3, PricePerPerson = 14 };
+            PricePerRoomPerPerson price3 = new PricePerRoomPerPerson() { Room = m1, NumberOfPlayers = 4, PricePerPerson = 12 };
+            PricePerRoomPerPerson price4 = new PricePerRoomPerPerson() { Room = m1, NumberOfPlayers = 5, PricePerPerson = 11 };
+            PricePerRoomPerPerson price5 = new PricePerRoomPerPerson() { Room = m1, NumberOfPlayers = 6, PricePerPerson = 10 };
+            PricePerRoomPerPerson price6 = new PricePerRoomPerPerson() { Room = m2, NumberOfPlayers = 2, PricePerPerson = 25 };
+            PricePerRoomPerPerson price7 = new PricePerRoomPerPerson() { Room = m2, NumberOfPlayers = 3, PricePerPerson = 22 };
+            PricePerRoomPerPerson price8 = new PricePerRoomPerPerson() { Room = m2, NumberOfPlayers = 4, PricePerPerson = 20 };
+            PricePerRoomPerPerson price9 = new PricePerRoomPerPerson() { Room = m2, NumberOfPlayers = 5, PricePerPerson = 18 };
+            PricePerRoomPerPerson price10 = new PricePerRoomPerPerson() { Room = m2, NumberOfPlayers = 6, PricePerPerson = 17 };
+            PricePerRoomPerPerson price11 = new PricePerRoomPerPerson() { Room = m3, NumberOfPlayers = 2, PricePerPerson = 22 };
+            PricePerRoomPerPerson price12 = new PricePerRoomPerPerson() { Room = m3, NumberOfPlayers = 3, PricePerPerson = 20 };
+            PricePerRoomPerPerson price13 = new PricePerRoomPerPerson() { Room = m3, NumberOfPlayers = 4, PricePerPerson = 18 };
+            PricePerRoomPerPerson price14 = new PricePerRoomPerPerson() { Room = m3, NumberOfPlayers = 5, PricePerPerson = 17 };
+            PricePerRoomPerPerson price15 = new PricePerRoomPerPerson() { Room = m4, NumberOfPlayers = 2, PricePerPerson = 18 };
+            PricePerRoomPerPerson price16 = new PricePerRoomPerPerson() { Room = m4, NumberOfPlayers = 3, PricePerPerson = 16 };
+            PricePerRoomPerPerson price17 = new PricePerRoomPerPerson() { Room = m4, NumberOfPlayers = 4, PricePerPerson = 15 };
+            PricePerRoomPerPerson price18 = new PricePerRoomPerPerson() { Room = m4, NumberOfPlayers = 5, PricePerPerson = 14 };
+            PricePerRoomPerPerson price19 = new PricePerRoomPerPerson() { Room = m4, NumberOfPlayers = 6, PricePerPerson = 12 };
+            PricePerRoomPerPerson price20 = new PricePerRoomPerPerson() { Room = m5, NumberOfPlayers = 2, PricePerPerson = 20 };
+            PricePerRoomPerPerson price21 = new PricePerRoomPerPerson() { Room = m5, NumberOfPlayers = 3, PricePerPerson = 18 };
+            PricePerRoomPerPerson price22 = new PricePerRoomPerPerson() { Room = m5, NumberOfPlayers = 4, PricePerPerson = 17 };
+            PricePerRoomPerPerson price23 = new PricePerRoomPerPerson() { Room = m5, NumberOfPlayers = 5, PricePerPerson = 15 };
+            PricePerRoomPerPerson price24 = new PricePerRoomPerPerson() { Room = m6, NumberOfPlayers = 2, PricePerPerson = 25 };
+            PricePerRoomPerPerson price25 = new PricePerRoomPerPerson() { Room = m6, NumberOfPlayers = 3, PricePerPerson = 22 };
+            PricePerRoomPerPerson price26 = new PricePerRoomPerPerson() { Room = m6, NumberOfPlayers = 4, PricePerPerson = 20 };
+            PricePerRoomPerPerson price27 = new PricePerRoomPerPerson() { Room = m6, NumberOfPlayers = 5, PricePerPerson = 18 };
+            PricePerRoomPerPerson price28 = new PricePerRoomPerPerson() { Room = m6, NumberOfPlayers = 6, PricePerPerson = 17 };
+            PricePerRoomPerPerson price29 = new PricePerRoomPerPerson() { Room = m7, NumberOfPlayers = 2, PricePerPerson = 24 };
+            PricePerRoomPerPerson price30 = new PricePerRoomPerPerson() { Room = m7, NumberOfPlayers = 3, PricePerPerson = 22 };
+            PricePerRoomPerPerson price31 = new PricePerRoomPerPerson() { Room = m7, NumberOfPlayers = 4, PricePerPerson = 20 };
+            PricePerRoomPerPerson price32 = new PricePerRoomPerPerson() { Room = m8, NumberOfPlayers = 2, PricePerPerson = 20 };
+            PricePerRoomPerPerson price33 = new PricePerRoomPerPerson() { Room = m8, NumberOfPlayers = 3, PricePerPerson = 18 };
+            PricePerRoomPerPerson price34 = new PricePerRoomPerPerson() { Room = m8, NumberOfPlayers = 4, PricePerPerson = 17 };
+            PricePerRoomPerPerson price35 = new PricePerRoomPerPerson() { Room = m8, NumberOfPlayers = 5, PricePerPerson = 15 };
+            PricePerRoomPerPerson price36 = new PricePerRoomPerPerson() { Room = m9, NumberOfPlayers = 2, PricePerPerson = 17 };
+            PricePerRoomPerPerson price37 = new PricePerRoomPerPerson() { Room = m9, NumberOfPlayers = 3, PricePerPerson = 15 };
+            PricePerRoomPerPerson price38 = new PricePerRoomPerPerson() { Room = m9, NumberOfPlayers = 4, PricePerPerson = 14 };
+            PricePerRoomPerPerson price39 = new PricePerRoomPerPerson() { Room = m9, NumberOfPlayers = 5, PricePerPerson = 12 };
+            PricePerRoomPerPerson price40 = new PricePerRoomPerPerson() { Room = m10, NumberOfPlayers = 2, PricePerPerson = 25 };
+            PricePerRoomPerPerson price41 = new PricePerRoomPerPerson() { Room = m10, NumberOfPlayers = 3, PricePerPerson = 22 };
+            PricePerRoomPerPerson price42 = new PricePerRoomPerPerson() { Room = m10, NumberOfPlayers = 4, PricePerPerson = 20 };
+            PricePerRoomPerPerson price43 = new PricePerRoomPerPerson() { Room = m10, NumberOfPlayers = 5, PricePerPerson = 18 };
+            PricePerRoomPerPerson price44 = new PricePerRoomPerPerson() { Room = m10, NumberOfPlayers = 6, PricePerPerson = 17 };
+
+
+            context.PricesPerRoomPerPerson.AddOrUpdate(price1, price2, price3, price4, price5, price6, price7, price8,
+                price9, price10, price11, price12, price13, price14, price15, price16, price17, price18, price19, price20,
+                price21, price22, price23, price24, price25, price26, price27, price28, price29, price30, price31,
+                price32, price33, price34, price35, price36, price37, price38, price39, price40, price41, price42,
+                price43, price44);
+
+            context.SaveChanges();
             #endregion
         }
     }

@@ -1,6 +1,7 @@
 ﻿using Entities.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,10 @@ namespace Entities
         public bool HasActor { get; set; }
         public double Rating { get; set; }
         public float EscapeRate { get; set; }
-        public List<Language> Languages { get; set; } = new List<Language>();
         public bool IsActive { get; set; }
-        public Dictionary<int, decimal> PricePerPerson { get; set; } = new Dictionary<int, decimal>();
+
+        [NotMapped]
+        public List<PricePerRoomPerPerson> Prices { get; set; } = new List<PricePerRoomPerPerson>();
 
         public Room()
         {
