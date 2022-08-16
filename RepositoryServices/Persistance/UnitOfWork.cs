@@ -21,7 +21,6 @@ namespace RepositoryServices.Persistance
 
         public ILanguagePerRoomRepository LanguagesPerRoom { get; private set; }
 
-        public IPricePerRoomPerPersonRepository PricesPerRoomPerPerson { get; private set; }
         public UnitOfWork(ApplicationContext context)
         {
             db = context;
@@ -29,7 +28,6 @@ namespace RepositoryServices.Persistance
             Rooms = new RoomRepository(context);
             Reservations = new ReservationRepository(context);
             LanguagesPerRoom = new LanguagePerRoomRepository(context);
-            PricesPerRoomPerPerson = new PricePerRoomPerPersonRepository(context);
         }
 
         public void Dispose()

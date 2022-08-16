@@ -21,9 +21,11 @@ namespace Entities
         public double Rating { get; set; }
         public float EscapeRate { get; set; }
         public bool IsActive { get; set; }
+        public decimal StartingPricePerPerson { get; set; }
+        public decimal DiscountPerPerson { get; set; }
 
-        [NotMapped]
-        public List<PricePerRoomPerPerson> Prices { get; set; } = new List<PricePerRoomPerPerson>();
+
+       
 
         public Room()
         {

@@ -22,6 +22,18 @@ namespace Entities
 
         public int NumberOfPlayers { get; set; }
         public DateTime GameStart { get; set; }
+        
+
+        private decimal _TotalPrice;
+
+        public decimal TotalPrice
+        {
+            get { return (NumberOfPlayers > 2 ?
+                    (Room.StartingPricePerPerson * NumberOfPlayers) - (Room.StartingPricePerPerson * NumberOfPlayers * Room.DiscountPerPerson)
+                    : Room.StartingPricePerPerson * NumberOfPlayers); }
+            set { _TotalPrice = value; }
+        }
+
 
 
         public Reservation()

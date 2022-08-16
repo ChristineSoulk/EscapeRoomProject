@@ -36,7 +36,9 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                IsActive = true
+                IsActive = true,
+                StartingPricePerPerson = 16,
+                DiscountPerPerson = 0.05M
             };
 
             Room m2 = new Room()
@@ -56,8 +58,10 @@ namespace DatabaseLibrary.Migrations
                 HasActor = true,
                 Rating = 0,
                 EscapeRate = 0,
-                IsActive = true
-              
+                IsActive = true,
+                StartingPricePerPerson = 25,
+                DiscountPerPerson = 0.1M
+
             };
 
             Room m3 = new Room()
@@ -76,8 +80,10 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                IsActive = true
-               
+                IsActive = true,
+                StartingPricePerPerson = 22,
+                DiscountPerPerson = 0.08M
+
             };
 
             Room m4 = new Room()
@@ -95,8 +101,10 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                IsActive = true
-               
+                IsActive = true,
+                StartingPricePerPerson = 18,
+                DiscountPerPerson = 0.06M
+
             };
 
             Room m5 = new Room()
@@ -114,8 +122,10 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                IsActive = true
-               
+                IsActive = true,
+                StartingPricePerPerson = 20,
+                DiscountPerPerson = 0.1M
+
             };
 
             Room m6 = new Room()
@@ -133,8 +143,10 @@ namespace DatabaseLibrary.Migrations
                 HasActor = true,
                 Rating = 0,
                 EscapeRate = 0,
-                IsActive = true
-              
+                IsActive = true,
+                StartingPricePerPerson = 25,
+                DiscountPerPerson = 0.12M
+
             };
 
             Room m7 = new Room()
@@ -152,8 +164,10 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                IsActive = true
-               
+                IsActive = true,
+                StartingPricePerPerson = 24,
+                DiscountPerPerson = 0.12M
+
             };
 
             Room m8 = new Room()
@@ -170,7 +184,9 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                IsActive = true
+                IsActive = true,
+                StartingPricePerPerson = 20,
+                DiscountPerPerson = 0.1M
             };
 
             Room m9 = new Room()
@@ -188,8 +204,10 @@ namespace DatabaseLibrary.Migrations
                 HasActor = false,
                 Rating = 0,
                 EscapeRate = 0,
-                IsActive = true
-               
+                IsActive = true,
+                StartingPricePerPerson = 17,
+                DiscountPerPerson = 0.07M
+
             };
 
             Room m10 = new Room()
@@ -206,11 +224,14 @@ namespace DatabaseLibrary.Migrations
                 HasActor = true,
                 Rating = 0,
                 EscapeRate = 0,
-                IsActive = true
-              
+                IsActive = true,
+                StartingPricePerPerson = 25,
+                DiscountPerPerson = 0.1M
+
             };
 
-            context.Rooms.AddOrUpdate(m1, m2, m3, m4, m5, m6, m7, m8, m9, m10);
+            context.Rooms.AddOrUpdate(m1,m2,m3,m4,m5,m6,m7,m8,m9,m10);
+            context.SaveChanges();
             #endregion SeedingRooms
 
             #region SeedingPlayers
@@ -344,61 +365,8 @@ namespace DatabaseLibrary.Migrations
             #endregion
 
 
-            #region SeedingPricePerRoom
-            PricePerRoomPerPerson price1 = new PricePerRoomPerPerson() { Room = m1, NumberOfPlayers = 2, PricePerPerson = 16 };
-            PricePerRoomPerPerson price2 = new PricePerRoomPerPerson() { Room = m1, NumberOfPlayers = 3, PricePerPerson = 14 };
-            PricePerRoomPerPerson price3 = new PricePerRoomPerPerson() { Room = m1, NumberOfPlayers = 4, PricePerPerson = 12 };
-            PricePerRoomPerPerson price4 = new PricePerRoomPerPerson() { Room = m1, NumberOfPlayers = 5, PricePerPerson = 11 };
-            PricePerRoomPerPerson price5 = new PricePerRoomPerPerson() { Room = m1, NumberOfPlayers = 6, PricePerPerson = 10 };
-            PricePerRoomPerPerson price6 = new PricePerRoomPerPerson() { Room = m2, NumberOfPlayers = 2, PricePerPerson = 25 };
-            PricePerRoomPerPerson price7 = new PricePerRoomPerPerson() { Room = m2, NumberOfPlayers = 3, PricePerPerson = 22 };
-            PricePerRoomPerPerson price8 = new PricePerRoomPerPerson() { Room = m2, NumberOfPlayers = 4, PricePerPerson = 20 };
-            PricePerRoomPerPerson price9 = new PricePerRoomPerPerson() { Room = m2, NumberOfPlayers = 5, PricePerPerson = 18 };
-            PricePerRoomPerPerson price10 = new PricePerRoomPerPerson() { Room = m2, NumberOfPlayers = 6, PricePerPerson = 17 };
-            PricePerRoomPerPerson price11 = new PricePerRoomPerPerson() { Room = m3, NumberOfPlayers = 2, PricePerPerson = 22 };
-            PricePerRoomPerPerson price12 = new PricePerRoomPerPerson() { Room = m3, NumberOfPlayers = 3, PricePerPerson = 20 };
-            PricePerRoomPerPerson price13 = new PricePerRoomPerPerson() { Room = m3, NumberOfPlayers = 4, PricePerPerson = 18 };
-            PricePerRoomPerPerson price14 = new PricePerRoomPerPerson() { Room = m3, NumberOfPlayers = 5, PricePerPerson = 17 };
-            PricePerRoomPerPerson price15 = new PricePerRoomPerPerson() { Room = m4, NumberOfPlayers = 2, PricePerPerson = 18 };
-            PricePerRoomPerPerson price16 = new PricePerRoomPerPerson() { Room = m4, NumberOfPlayers = 3, PricePerPerson = 16 };
-            PricePerRoomPerPerson price17 = new PricePerRoomPerPerson() { Room = m4, NumberOfPlayers = 4, PricePerPerson = 15 };
-            PricePerRoomPerPerson price18 = new PricePerRoomPerPerson() { Room = m4, NumberOfPlayers = 5, PricePerPerson = 14 };
-            PricePerRoomPerPerson price19 = new PricePerRoomPerPerson() { Room = m4, NumberOfPlayers = 6, PricePerPerson = 12 };
-            PricePerRoomPerPerson price20 = new PricePerRoomPerPerson() { Room = m5, NumberOfPlayers = 2, PricePerPerson = 20 };
-            PricePerRoomPerPerson price21 = new PricePerRoomPerPerson() { Room = m5, NumberOfPlayers = 3, PricePerPerson = 18 };
-            PricePerRoomPerPerson price22 = new PricePerRoomPerPerson() { Room = m5, NumberOfPlayers = 4, PricePerPerson = 17 };
-            PricePerRoomPerPerson price23 = new PricePerRoomPerPerson() { Room = m5, NumberOfPlayers = 5, PricePerPerson = 15 };
-            PricePerRoomPerPerson price24 = new PricePerRoomPerPerson() { Room = m6, NumberOfPlayers = 2, PricePerPerson = 25 };
-            PricePerRoomPerPerson price25 = new PricePerRoomPerPerson() { Room = m6, NumberOfPlayers = 3, PricePerPerson = 22 };
-            PricePerRoomPerPerson price26 = new PricePerRoomPerPerson() { Room = m6, NumberOfPlayers = 4, PricePerPerson = 20 };
-            PricePerRoomPerPerson price27 = new PricePerRoomPerPerson() { Room = m6, NumberOfPlayers = 5, PricePerPerson = 18 };
-            PricePerRoomPerPerson price28 = new PricePerRoomPerPerson() { Room = m6, NumberOfPlayers = 6, PricePerPerson = 17 };
-            PricePerRoomPerPerson price29 = new PricePerRoomPerPerson() { Room = m7, NumberOfPlayers = 2, PricePerPerson = 24 };
-            PricePerRoomPerPerson price30 = new PricePerRoomPerPerson() { Room = m7, NumberOfPlayers = 3, PricePerPerson = 22 };
-            PricePerRoomPerPerson price31 = new PricePerRoomPerPerson() { Room = m7, NumberOfPlayers = 4, PricePerPerson = 20 };
-            PricePerRoomPerPerson price32 = new PricePerRoomPerPerson() { Room = m8, NumberOfPlayers = 2, PricePerPerson = 20 };
-            PricePerRoomPerPerson price33 = new PricePerRoomPerPerson() { Room = m8, NumberOfPlayers = 3, PricePerPerson = 18 };
-            PricePerRoomPerPerson price34 = new PricePerRoomPerPerson() { Room = m8, NumberOfPlayers = 4, PricePerPerson = 17 };
-            PricePerRoomPerPerson price35 = new PricePerRoomPerPerson() { Room = m8, NumberOfPlayers = 5, PricePerPerson = 15 };
-            PricePerRoomPerPerson price36 = new PricePerRoomPerPerson() { Room = m9, NumberOfPlayers = 2, PricePerPerson = 17 };
-            PricePerRoomPerPerson price37 = new PricePerRoomPerPerson() { Room = m9, NumberOfPlayers = 3, PricePerPerson = 15 };
-            PricePerRoomPerPerson price38 = new PricePerRoomPerPerson() { Room = m9, NumberOfPlayers = 4, PricePerPerson = 14 };
-            PricePerRoomPerPerson price39 = new PricePerRoomPerPerson() { Room = m9, NumberOfPlayers = 5, PricePerPerson = 12 };
-            PricePerRoomPerPerson price40 = new PricePerRoomPerPerson() { Room = m10, NumberOfPlayers = 2, PricePerPerson = 25 };
-            PricePerRoomPerPerson price41 = new PricePerRoomPerPerson() { Room = m10, NumberOfPlayers = 3, PricePerPerson = 22 };
-            PricePerRoomPerPerson price42 = new PricePerRoomPerPerson() { Room = m10, NumberOfPlayers = 4, PricePerPerson = 20 };
-            PricePerRoomPerPerson price43 = new PricePerRoomPerPerson() { Room = m10, NumberOfPlayers = 5, PricePerPerson = 18 };
-            PricePerRoomPerPerson price44 = new PricePerRoomPerPerson() { Room = m10, NumberOfPlayers = 6, PricePerPerson = 17 };
-
-
-            context.PricesPerRoomPerPerson.AddOrUpdate(price1, price2, price3, price4, price5, price6, price7, price8,
-                price9, price10, price11, price12, price13, price14, price15, price16, price17, price18, price19, price20,
-                price21, price22, price23, price24, price25, price26, price27, price28, price29, price30, price31,
-                price32, price33, price34, price35, price36, price37, price38, price39, price40, price41, price42,
-                price43, price44);
-
-            context.SaveChanges();
-            #endregion
+            
+            
         }
     }
 }

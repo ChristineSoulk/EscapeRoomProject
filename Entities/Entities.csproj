@@ -55,7 +55,6 @@
     <Compile Include="Enums\Language.cs" />
     <Compile Include="LanguagePerRoom.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PricePerRoomPerPerson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservation.cs" />
     <Compile Include="Room.cs" />

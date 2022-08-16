@@ -25,7 +25,7 @@ namespace DatabaseLibrary
         public virtual DbSet<Player> Players { get; set; }
         public virtual DbSet<Reservation> Reservations { get; set; }
 
-        public virtual DbSet<PricePerRoomPerPerson> PricesPerRoomPerPerson { get; set; }
+        
 
         public virtual DbSet<LanguagePerRoom> LanguagesPerRoom { get; set; }
     }

@@ -15,7 +15,6 @@ namespace RepositoryServices.Core
 
         ILanguagePerRoomRepository LanguagesPerRoom { get; }
 
-        IPricePerRoomPerPersonRepository PricesPerRoomPerPerson { get; }
 
     }
 }
