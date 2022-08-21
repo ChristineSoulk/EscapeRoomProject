@@ -23,6 +23,8 @@ namespace Entities
         public bool IsActive { get; set; }
         public decimal StartingPricePerPerson { get; set; }
         public decimal DiscountPerPerson { get; set; }
+        public string ImageUrl { get; set; }
+        public string VideoId { get; set; }
 
 
        
