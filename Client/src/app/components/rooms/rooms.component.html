@@ -1,0 +1,45 @@
+
+      
+
+<app-homephotos></app-homephotos>
+
+
+
+<div *ngFor="let room of Rooms " class="card-group vgr-cards">
+
+
+  <div class="card">
+    <i class="fa fa-heart" title="Wish list!"></i>
+    <i *ngIf="room.HasActor==true" class="fa fa-user-secret" title="With Actor"></i>
+
+    <div  class="card-img-body">
+
+      <img class="card-img"
+        src={{room.ImageUrl}}>
+    </div>
+
+
+    
+    <div class="card-body">
+
+      <h2 class="card-title">{{room.Title}}</h2>
+      <hr>
+      <p class="card-text"  *ngIf="room.Difficulty==0"><i class="fa fa-bomb"></i></p>
+      <p class="card-text" *ngIf="room.Difficulty==1"><i class="fa fa-bomb"></i><i class="fa fa-bomb"></i></p>
+      <p class="card-text" *ngIf="room.Difficulty==2"> <i class="fa fa-bomb"></i><i class="fa fa-bomb"></i><i class="fa fa-bomb"></i> </p>
+      <p class="card-text"> <i class="fa fa-users" aria-hidden="true"></i>  up to {{room.Capacity}}</p>
+      <p class="card-text"> <i class="fa fa-hourglass-end" aria-hidden="true"></i> {{room.Duration}} min </p>
+      <p class="card-text"><i class="fa fa-hashtag" ></i>{{room.Genre}} </p>
+    
+      <a routerLink="/Details" class="btn btn-outline-danger">Room Details</a>
+    </div>
+  </div>
+  
+  </div>
+
+
+
+
+
+
+<router-outlet></router-outlet>

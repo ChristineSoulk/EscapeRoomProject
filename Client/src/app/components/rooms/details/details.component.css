@@ -1,0 +1,17 @@
+.detailsImage {
+    width: 100%;
+    opacity: 1;
+    margin-bottom: 50%;
+    margin-top: 55px;
+    padding: 0;
+    outline: none;
+    background-size: cover;
+
+}
+
+img {
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgb(0, 0, 0)), to(rgb(88, 88, 88, 0)));
+    }
+    
+    
+  

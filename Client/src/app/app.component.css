@@ -1,0 +1,48 @@
+
+
+.nav-link{
+  color: rgba(255, 0, 0, 0.892);
+  font-size: large;
+  margin-left: 170px;
+}
+
+.nav-button{
+  padding-left: 400px;
+}
+
+.nav-button .signin-btn:hover{
+  background-color:rgba(255, 0, 0, 0.419);
+  height: 88%;
+  border-radius: 5px;
+  left: 20%;
+}
+
+
+.nav-link:hover{
+ color: #d5b251;
+}
+
+.nav-link:active
+{
+  color: chartreuse;
+}
+
+li > a.active { color: #F97924 }
+
+.navbar
+{
+  background-color: rgba(0, 0, 0, 0.655);
+  background-size:cover;
+}
+
+.nav-logo
+{
+  width:80px;
+  height: 40px;
+   border-radius: 5px;
+}
+
+.foo
+{
+  background-color: #b46119;
+}

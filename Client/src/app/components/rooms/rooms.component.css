@@ -1,0 +1,113 @@
+
+
+/*Για τη κάθε κάρτα properties*/
+.card {
+    background-color: #bddcee;
+    border: none;
+    box-shadow: 5px 5px 5px #f60b0f57; 
+    border-radius: none;
+    margin-top: 100px;
+    display: flex;
+    flex-flow: wrap;
+    flex: 100%;
+    margin-bottom: 250px;
+    border-radius: 4px;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+
+/*Για κάθε φωτογραφία πως θα εμφανίζεται */
+.card-img-body {
+    flex: 2.20;
+    overflow: hidden;
+    position: relative;
+    height: 140%;
+    margin-top: -4%;
+    margin-left: -0.5%;
+    margin-right: -1%;
+    box-shadow: 10px 10px 8px #00000069; 
+}
+
+/*Link centered*/
+.card-body a {
+    display: block;
+    width: 155px;
+    margin: auto;
+    box-shadow: 5px 5px 5px #00000069; 
+}
+
+/*Title centered*/
+.card-title {
+    text-align: center;
+    letter-spacing: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.card-text {
+    text-align: center;
+}
+
+
+/*Properties tie kartas*/
+.card-img {
+
+    position: absolute;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+    padding-right: 0%;
+    filter: brightness(0.7);
+    transition: 0.3s;
+    cursor: pointer;
+    filter: grayscale(80%);
+}
+
+.card-img:hover {
+    filter: brightness(1.1);
+}
+
+
+.card-body {
+    flex: 2;
+    padding: 1 0 0 3rem;
+}
+
+
+/*Fa icons*/
+.fa-heart:hover{
+    color: rgba(255, 0, 0, 0.878);
+}
+
+.fa-heart {
+    position: absolute;
+    z-index: 1;
+    top:-25px;
+    left:25px;
+    font-size: 22px;
+    cursor: pointer;
+    color: rgba(255, 0, 0, 0.325);
+}
+
+.fa-user-secret
+{
+    position: absolute;
+    z-index: 1;
+    top:-25px;
+    right:850px;
+    font-size: 30px;
+    cursor: pointer;
+    color: rgba(71, 123, 219, 0.847);
+}
+
+/* Perithorio apo dexia kai aristera gia mones kai zyges kartes*/
+
+
+ .card:nth-child(odd) .card-body {
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+

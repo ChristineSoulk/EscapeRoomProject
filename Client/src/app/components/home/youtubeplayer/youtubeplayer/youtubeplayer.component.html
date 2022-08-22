@@ -1,0 +1,28 @@
+<div class="check">
+    <h3>Check Out Our Videos! <i class="fa fa-youtube-play"></i></h3>
+    
+
+    
+    <br>
+
+    <ngx-slick-carousel style="margin-left:33.5%; margin-right:33.5%; margin-top:5%; margin-bottom:5%;" class="carousel video" 
+                            #slickModal="slick-carousel" 
+                            [config]="slideConfig" 
+                            (init)="slickInit($event)"
+                            (breakpoint)="breakpoint($event)"
+                            (afterChange)="afterChange($event)"
+                            (beforeChange)="beforeChange($event)"
+                            >
+
+                            <div ngxSlickItem *ngFor="let slide of slides" class="slide" style="height: 390px; width:80%;" >
+                                
+                                    <youtube-player class="heresy" videoId="{{ slide.videoIds }}" suggestedQuality="hd1080" [startSeconds]="0"> </youtube-player>
+
+                            </div>
+                            
+                            
+    </ngx-slick-carousel>
+    
+</div>
+
+

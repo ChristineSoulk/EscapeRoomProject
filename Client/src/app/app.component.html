@@ -1,0 +1,111 @@
+<!--NavBar-->
+<div class="navbar-out" style="background-color:#1b1b1b">
+    <nav class="navbar fixed-top">
+        <ul class="nav">
+            <li>
+                <img class="nav-logo"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJidQ4t0_bdv0PLVJ4TZx8xWC-F5t3xjelZQ&usqp=CAU">
+            </li>
+
+                <li class="nav-item" >
+                    <a class="nav-link" [routerLink]="['/Home']" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+                </li>
+                <li class="nav-item" >
+                  <a class="nav-link" [routerLink]="['/About']" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">About</a>
+                </li>
+                <li class="nav-item" >
+                  <a class="nav-link" [routerLink]="['/Rooms']" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Rooms</a>
+                </li>
+                <li class="nav-item" >
+                  <a class="nav-link" [routerLink]="['/Contact']" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Contact</a>
+                </li>
+                <li class="nav-item" >
+                  <a class="nav-link" [routerLink]="['/Book']" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Book Now</a>
+                </li>
+                
+
+
+            <div class="nav-button">
+                <button routerLink="/Sign" class="signin-btn btn btn-outline-danger">Sign In</button>
+            </div>
+
+        </ul>
+    </nav>
+    <router-outlet></router-outlet>
+
+    
+  
+    
+
+
+    <app-map></app-map>
+    <footer class="bg-light text-center">
+      
+        <!-- Grid container -->
+        <div class="foo p-4 pb-2">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #3b5998;"
+              href="https://www.facebook.com/groups/escaperoomenthusiasts/"
+              role="button"
+              ><i class="fa fa-facebook-f"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #55acee;"
+              href="https://twitter.com/escape_room?lang=el"
+              role="button"
+              ><i class="fa fa-twitter"></i
+            ></a>
+      
+            <!-- Google -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #dd4b39;"
+              href="https://play.google.com/store/apps/details?id=com.coldapp.at50rooms1&hl=el&gl=US"
+              role="button"
+              ><i class="fa fa-google"></i></a>
+      
+            <!-- Instagram -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #aa3caa;"
+              href="https://www.instagram.com/escaperoom/"
+              role="button"
+              ><i class="fa fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #0082ca;"
+              href="https://www.linkedin.com/company/escape-the-room"
+              role="button"
+              ><i class="fa fa-linkedin"></i
+            ></a>
+            <!-- Github -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #333333;"
+              href="https://github.com/topics/escape-room"
+              role="button"
+              ><i class="fa fa-github"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: #1b1b1b96;">
+          © 2022 Copyright:
+          <a  href="#" class="text-decoration-none" style="color:black">Anikitoi.com</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+</div>

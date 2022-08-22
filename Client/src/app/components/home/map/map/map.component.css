@@ -1,0 +1,14 @@
+
+.map
+{
+  margin-top: 20px;
+  margin-bottom: 300px;
+  width: 100%;
+  height: 100px;
+  
+}
+
+#gmap_canvas
+{
+  height: 250px;
+}

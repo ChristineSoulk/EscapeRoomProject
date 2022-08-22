@@ -1,0 +1,27 @@
+    <ngx-slick-carousel style="margin:2%;" class="carousel" 
+                            #slickModal="slick-carousel" 
+                            [config]="slideConfig" 
+                            (init)="slickInit($event)"
+                            (breakpoint)="breakpoint($event)"
+                            (afterChange)="afterChange($event)"
+                            (beforeChange)="beforeChange($event)"
+                            >
+
+
+                            <div ngxSlickItem *ngFor="let slide of slides" class="slide" style="height: 500px; width:80%;" >
+                                  
+                                    <img src="{{ slide.img }}" alt="" >
+                                  
+                            </div>
+                            
+                            
+    </ngx-slick-carousel>
+    
+             
+
+    <div class="textinImage active">
+      <h2 class="display-4">You Are Locked In!</h2>
+    </div>
+
+
+
