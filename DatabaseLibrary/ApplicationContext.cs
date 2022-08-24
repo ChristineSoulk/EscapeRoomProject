@@ -27,6 +27,6 @@ namespace DatabaseLibrary
 
         
 
-        public virtual DbSet<LanguagePerRoom> LanguagesPerRoom { get; set; }
+       
     }
 }

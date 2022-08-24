@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using EscapeRoomApp.Providers;
 using EscapeRoomApp.Models;
+using EscapeRoomApp.Models.IdentityModels;
 
 namespace EscapeRoomApp
 {

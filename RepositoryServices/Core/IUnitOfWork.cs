@@ -13,7 +13,7 @@ namespace RepositoryServices.Core
         IRoomRepository Rooms { get; }
         IReservationRepository Reservations { get; }
 
-        ILanguagePerRoomRepository LanguagesPerRoom { get; }
+        
 
 
     }

@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using EscapeRoomApp.Models;
+using EscapeRoomApp.Models.IdentityModels;
 
 namespace EscapeRoomApp
 {

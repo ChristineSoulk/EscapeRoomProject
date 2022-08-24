@@ -16,6 +16,9 @@ using Microsoft.Owin.Security.OAuth;
 using EscapeRoomApp.Models;
 using EscapeRoomApp.Providers;
 using EscapeRoomApp.Results;
+using EscapeRoomApp.Models.AccountViewModels;
+using EscapeRoomApp.Models.AccountBindingModels;
+using EscapeRoomApp.Models.IdentityModels;
 
 namespace EscapeRoomApp.Controllers
 {

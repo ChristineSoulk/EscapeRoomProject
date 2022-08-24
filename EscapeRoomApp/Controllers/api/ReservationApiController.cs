@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace EscapeRoomApp.Controllers
+namespace EscapeRoomApp.Controllers.api
 {
     public class ReservationApiController : BaseClassApiController
     {
@@ -29,7 +29,7 @@ namespace EscapeRoomApp.Controllers
 
             UnitOfWork.Reservations.Insert(reservation);
 
-
+            
             return Ok();
         }
     }

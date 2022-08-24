@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace EscapeRoomApp.Controllers
+namespace EscapeRoomApp.Controllers.api
 {
     public class PlayerApiController : BaseClassApiController
     {

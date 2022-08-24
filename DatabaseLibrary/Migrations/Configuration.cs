@@ -39,8 +39,7 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 16,
                 DiscountPerPerson = 0.05M,
-                ImageUrl = "https://escapethereview.co.uk/wp-content/uploads/2019/03/game-2027.png",
-                VideoId = "64NrDwoaYuU"
+           
             };
 
             Room m2 = new Room()
@@ -63,8 +62,7 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 25,
                 DiscountPerPerson = 0.1M,
-                ImageUrl = "https://enigmaescape.gr/wp-content/uploads/2021/04/Rhodes-escape-rooms-2.jpg",
-                VideoId = "T7jrHj3qjc4"
+              
 
             };
 
@@ -87,8 +85,7 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 22,
                 DiscountPerPerson = 0.08M,
-                ImageUrl = "https://www.everyescaperoom.co.uk/data/images/products/355/thumbnail/9e87c42b628d0ddaae453e2ec82cb144.jpg",
-                VideoId = "0i85CJilgdQ"
+              
 
             };
 
@@ -110,8 +107,7 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 18,
                 DiscountPerPerson = 0.06M,
-                ImageUrl = "https://img.grouponcdn.com/deal/22XfEvq2jx1vn7hL99SXn9yEhf9r/22-2000x1200/v1/c870x524.jpg",
-                VideoId = "1TACbGt9dO4"
+             
 
             };
 
@@ -133,8 +129,7 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 20,
                 DiscountPerPerson = 0.1M,
-                ImageUrl = "https://escapethereview.co.uk/wp-content/uploads/2017/04/warbg-e1491755688889.png",
-                VideoId = "1beRQ5WqrPo"
+             
 
             };
 
@@ -156,9 +151,7 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 25,
                 DiscountPerPerson = 0.12M,
-                ImageUrl = "https://i0.wp.com/scareaddicts.com/wp-content/uploads/2019/05/img_5043.jpg?resize=400%2C240",
-                VideoId = "mWdqJfjOP8w"
-
+              
             };
 
             Room m7 = new Room()
@@ -179,8 +172,7 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 24,
                 DiscountPerPerson = 0.12M,
-                ImageUrl = "https://s3-media0.fl.yelpcdn.com/bphoto/_i2AOgUQOu615EQ1b9fyuw/348s.jpg",
-                VideoId = "Tj1Chebkz68"
+              
 
             };
 
@@ -201,8 +193,7 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 20,
                 DiscountPerPerson = 0.1M,
-                ImageUrl = "https://media-cdn.tripadvisor.com/media/photo-s/17/71/a4/65/psychopath-s-den.jpg",
-                VideoId = "LuNhlOziCzc"
+               
             };
 
             Room m9 = new Room()
@@ -223,8 +214,7 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 17,
                 DiscountPerPerson = 0.07M,
-                ImageUrl = "https://thelogicescapesme.com/wp-content/uploads/2017/06/breakin-sherlock.jpg",
-                VideoId = "asaREiqt-7M"
+               
 
             };
 
@@ -245,8 +235,6 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 25,
                 DiscountPerPerson = 0.1M,
-                ImageUrl = "https://static.designmynight.com/uploads/2018/06/Aim-Escape-Room-Psychopaths-Den_041.png",
-                VideoId = "-bVS5uHamck"
 
             };
 
@@ -351,38 +339,7 @@ namespace DatabaseLibrary.Migrations
             #endregion
 
 
-            #region SeedingLanguages
-            LanguagePerRoom l1 = new LanguagePerRoom() { Room = m1, Language = Language.Greek };
-            LanguagePerRoom l2 = new LanguagePerRoom() { Room = m1, Language = Language.English };
-            LanguagePerRoom l3 = new LanguagePerRoom() { Room = m1, Language = Language.Spanish };
-            LanguagePerRoom l4 = new LanguagePerRoom() { Room = m2, Language = Language.Greek };
-            LanguagePerRoom l5 = new LanguagePerRoom() { Room = m2, Language = Language.English };
-            LanguagePerRoom l6 = new LanguagePerRoom() { Room = m2, Language = Language.French };
-            LanguagePerRoom l7 = new LanguagePerRoom() { Room = m3, Language = Language.Greek };
-            LanguagePerRoom l8 = new LanguagePerRoom() { Room = m3, Language = Language.English };
-            LanguagePerRoom l9 = new LanguagePerRoom() { Room = m4, Language = Language.Greek };
-            LanguagePerRoom l10 = new LanguagePerRoom() { Room = m4, Language = Language.English };
-            LanguagePerRoom l11 = new LanguagePerRoom() { Room = m4, Language = Language.German };
-            LanguagePerRoom l12 = new LanguagePerRoom() { Room = m5, Language = Language.Greek };
-            LanguagePerRoom l13 = new LanguagePerRoom() { Room = m5, Language = Language.English };
-            LanguagePerRoom l14 = new LanguagePerRoom() { Room = m5, Language = Language.Italian };
-            LanguagePerRoom l15 = new LanguagePerRoom() { Room = m6, Language = Language.Greek };
-            LanguagePerRoom l16 = new LanguagePerRoom() { Room = m6, Language = Language.English };
-            LanguagePerRoom l17 = new LanguagePerRoom() { Room = m7, Language = Language.Greek };
-            LanguagePerRoom l18 = new LanguagePerRoom() { Room = m7, Language = Language.English };
-            LanguagePerRoom l19 = new LanguagePerRoom() { Room = m7, Language = Language.French };
-            LanguagePerRoom l20 = new LanguagePerRoom() { Room = m8, Language = Language.Greek };
-            LanguagePerRoom l21 = new LanguagePerRoom() { Room = m8, Language = Language.English };
-            LanguagePerRoom l22 = new LanguagePerRoom() { Room = m8, Language = Language.Italian };
-            LanguagePerRoom l23 = new LanguagePerRoom() { Room = m9, Language = Language.Greek };
-            LanguagePerRoom l24 = new LanguagePerRoom() { Room = m9, Language = Language.English };
-            LanguagePerRoom l25 = new LanguagePerRoom() { Room = m9, Language = Language.Spanish };
-            LanguagePerRoom l26 = new LanguagePerRoom() { Room = m10, Language = Language.Greek };
-            LanguagePerRoom l27 = new LanguagePerRoom() { Room = m10, Language = Language.English };
-
-            context.LanguagesPerRoom.AddOrUpdate(l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17,
-                l18, l19, l20, l21, l22, l23, l24, l25, l26, l27);
-            #endregion
+           
 
 
             
