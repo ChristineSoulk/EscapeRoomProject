@@ -10,36 +10,39 @@ namespace Entities
 {
     public class Reservation 
     {
-        [Key, Column(Order = 0)]
+        public int Id { get; set; }
         public int RoomId { get; set; }
         public Room Room { get; set; }
-
-
-        [Key, Column(Order = 1)]
-        public int PlayerId { get; set; }
-        public Player Player { get; set; } 
-        
-
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public int NumberOfPlayers { get; set; }
-        public DateTime GameStart { get; set; }
-        
+        [NotMapped]
+        public DateTime GameDate { get; set; }
+        [NotMapped]
+        public DateTime GameTime { get; set; }
 
+        private DateTime _gameDayHour;
+
+        public DateTime GameDayHour
+        {
+            get { return GameDate.Date.Add(GameTime.TimeOfDay); }
+            set { _gameDayHour = value; }
+        }
         private decimal _TotalPrice;
-
         public decimal TotalPrice
         {
-            get { return (NumberOfPlayers > 2 ?
-                    (Room.StartingPricePerPerson * NumberOfPlayers) - (Room.StartingPricePerPerson * NumberOfPlayers * Room.DiscountPerPerson)
-                    : Room.StartingPricePerPerson * NumberOfPlayers); }
+            get { return _TotalPrice; }
             set { _TotalPrice = value; }
         }
-
-
 
         public Reservation()
         {
             
         }
-
+        public decimal CalculationTotalPrice(decimal startingPricePerPerson,decimal discountPerPerson,int numberOfPlayers)
+        {
+            return TotalPrice = (numberOfPlayers > 2 ?
+                (startingPricePerPerson * numberOfPlayers) - (discountPerPerson * numberOfPlayers * discountPerPerson) : startingPricePerPerson * numberOfPlayers);
+        }
     }
 }

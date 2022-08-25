@@ -11,7 +11,7 @@ namespace EscapeRoomApp
     {
         public void Send(string name, string message)
         {
-            name = Context.ConnectionId;
+            //name = Context.ConnectionId;
             // Call the broadcastMessage method to update clients.
             Clients.All.addNewMessageToPage(name, message);
         }

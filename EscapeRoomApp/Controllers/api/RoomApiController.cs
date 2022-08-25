@@ -58,8 +58,6 @@ namespace EscapeRoomApp.Controllers.api
 
             return Ok();
         }
-
-
         [HttpDelete]
         public IHttpActionResult DeleteRoom(int? roomId)
         {

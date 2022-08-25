@@ -286,49 +286,7 @@ namespace DatabaseLibrary.Migrations
                 PhoneNumber = "6954685487",
             };
             context.Players.AddOrUpdate(p1, p2, p3, p4, p5, p6);
-            #region Seeding Reservation
-            Reservation r1 = new Reservation()
-            {               
-                NumberOfPlayers = 4,
-                GameStart = new DateTime(2022, 08, 25, 05, 30, 00),
-            };
-            Reservation r2 = new Reservation()
-            {              
-                NumberOfPlayers = 6,
-                GameStart = new DateTime(2022, 08, 26, 07, 00, 00),
-            };
-            Reservation r3 = new Reservation()
-            {              
-                NumberOfPlayers = 3,
-                GameStart = new DateTime(2022, 08, 25, 07, 00, 00),
-            };
-            Reservation r4 = new Reservation()
-            {
-                NumberOfPlayers = 2,
-                GameStart = new DateTime(2022, 08, 27, 08, 00, 00),
-            };
-            Reservation r5 = new Reservation()
-            {
-                NumberOfPlayers = 4,
-                GameStart = new DateTime(2022, 08, 25, 06, 30, 00),
-            };
-            r1.Room = m5;
-            r1.Player = p4;
             
-            r2.Room = m4;
-            r2.Player = p2;
-            
-            r3.Room = m7;
-            r3.Player = p1;
-           
-            r4.Room = m1;
-            r4.Player = p3;
-            
-            r5.Room = m10;
-            r5.Player = p5;
-            
-
-            context.Reservations.AddOrUpdate(r1, r2, r3, r4, r5);
             context.SaveChanges();
 
             #endregion
@@ -336,7 +294,7 @@ namespace DatabaseLibrary.Migrations
 
 
 
-            #endregion
+            
 
 
            

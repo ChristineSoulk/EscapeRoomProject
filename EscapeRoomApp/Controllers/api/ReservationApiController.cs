@@ -13,21 +13,18 @@ namespace EscapeRoomApp.Controllers.api
         [HttpGet]
         public IEnumerable<Reservation> GetAllReservations()
         {
-            return UnitOfWork.Reservations.GetDatesOfReservations().ToList();
+            return UnitOfWork.Reservations.GetAll().ToList();
         }
         [HttpPost]
-        public IHttpActionResult MakeReservation(int playerId, int roomId, int numberOfPlayers,DateTime gameStarts)
+        public IHttpActionResult Create(Reservation reservation)
         {
-            var player = UnitOfWork.Players.GetById(playerId);
-            var room = UnitOfWork.Rooms.GetById(roomId);
+            
+            if (ModelState.IsValid)
+            {
+                UnitOfWork.Reservations.Insert(reservation);
+            }
 
-            Reservation reservation = new Reservation();
-            reservation.Room = room;
-            reservation.Player = player;
-            reservation.NumberOfPlayers = numberOfPlayers;
-            reservation.GameStart = gameStarts;
-
-            UnitOfWork.Reservations.Insert(reservation);
+            
 
             
             return Ok();

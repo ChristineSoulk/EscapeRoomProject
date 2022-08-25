@@ -17,20 +17,20 @@ namespace RepositoryServices.Persistance.Repositories
         }
         public List<Reservation> GetReservations()
         {
-            var reservationList = model.Include(x => x.Player).Include(y => y.Room).ToList();
-
+            var reservationList = model.Include(y => y.Room).ToList();
+            
             return reservationList;
             
         }
-        public IEnumerable<Reservation> GetDatesOfReservations()
-        {
+        //public IEnumerable<Reservation> GetDatesOfReservations()
+        //{
 
-            var listDates = model.Select(x => new { x.RoomId,x.GameStart}).ToArray().Select(x => new Reservation() { RoomId = x.RoomId, GameStart = x.GameStart});
+        //    //var listDates = model.Select(x => new { x.RoomId,x.GameDayHour}).ToArray().Select(x => new Reservation() { RoomId = x.RoomId, GameDayHour = x.GameDayHour});
 
 
-            return listDates;
-        }
-
+        //    //return listDates;
+        //}
+        
 
      
 
