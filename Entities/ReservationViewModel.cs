@@ -16,5 +16,10 @@ namespace Entities
         public DateTime GameDate { get; set; }
         public DateTime GameTime { get; set; }
         public Room Room { get; set; }
+
+        public ReservationViewModel()
+        {
+
+        }
     }
 }

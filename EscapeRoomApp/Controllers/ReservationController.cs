@@ -42,19 +42,10 @@ namespace EscapeRoomApp.Controllers
             return View(reservation);
         }
         [HttpPost]
-        public ActionResult MakeReservation(ReservationViewModel dto)
+        public ActionResult MakeReservation(ReservationViewModel rvm)
         {
-            Reservation reservation = new Reservation();
-            dto.Room = UnitOfWork.Rooms.GetById(dto.RoomId);
-            reservation.RoomId = dto.RoomId;
-            reservation.Room = dto.Room;
-            reservation.FirstName = dto.FirstName;
-            reservation.LastName = dto.LastName;
-            reservation.NumberOfPlayers = dto.NumberOfPlayers;
-            reservation.GameDate = dto.GameDate;
-            reservation.GameTime = dto.GameTime;
-            reservation.TotalPrice = reservation.CalculationTotalPrice(reservation.Room.StartingPricePerPerson, reservation.Room.DiscountPerPerson, reservation.NumberOfPlayers);
 
+            var reservation = ReservationMapping(rvm);
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("https://localhost:44368/api/");
@@ -95,29 +86,38 @@ namespace EscapeRoomApp.Controllers
             return View(reservations);
         }
         
-        public ActionResult PaymentWithPaypal(ReservationViewModel rvm, string Cancel = null)
+        public ActionResult PaymentWithPaypal(int roomId,string firstName,string lastName,int numberOfPlayers,
+            DateTime gameDate,DateTime gameTime, string Cancel = null)
         {
+            
             //getting the apiContext  
             APIContext apiContext = PaypalConfiguration.GetAPIContext();
             try
             {
-                //A resource representing a Payer that funds a payment Payment Method as paypal  
-                //Payer Id will be returned when payment proceeds or click to pay  
+                
+                
+
                 string payerId = Request.Params["PayerID"];
                 if (string.IsNullOrEmpty(payerId))
                 {
-                    //this section will be executed first because PayerID doesn't exist  
-                    //it is returned by the create function call of the payment class  
-                    // Creating a payment  
-                    // baseURL is the url on which paypal sendsback the data.  
+                    
                     string baseURI = Request.Url.Scheme + "://" + Request.Url.Authority + "/Reservation/PaymentWithPayPal?";
-                    //here we are generating guid for storing the paymentID received in session  
-                    //which will be used in the payment execution  
+
                     var guid = Convert.ToString((new Random()).Next(100000));
-                    //CreatePayment function gives us the payment approval url  
-                    //on which payer is redirected for paypal account payment  
-                    var createdPayment = this.CreatePayment(apiContext, baseURI + "guid=" + guid,rvm);
-                    //get links returned from paypal in response to Create function call  
+                    ReservationViewModel vm = new ReservationViewModel()
+                    {
+                        RoomId = roomId,
+                        FirstName = firstName,
+                        LastName = lastName,
+                        NumberOfPlayers = numberOfPlayers,
+                        GameDate = gameDate,
+                        GameTime = gameTime
+                    };
+                    var reservation = ReservationMapping(vm);
+
+                    var createdPayment = this.CreatePayment(apiContext, baseURI + "guid=" + guid, reservation);
+                    
+
                     var links = createdPayment.links.GetEnumerator();
                     string paypalRedirectUrl = null;
                     while (links.MoveNext())
@@ -125,32 +125,34 @@ namespace EscapeRoomApp.Controllers
                         Links lnk = links.Current;
                         if (lnk.rel.ToLower().Trim().Equals("approval_url"))
                         {
-                            //saving the payapalredirect URL to which user will be redirected for payment  
+                            
                             paypalRedirectUrl = lnk.href;
                         }
                     }
-                    // saving the paymentID in the key guid  
                     Session.Add(guid, createdPayment.id);
                     return Redirect(paypalRedirectUrl);
                 }
                 else
-                {
-                    // This function exectues after receving all parameters for the payment  
+                { 
                     var guid = Request.Params["guid"];
                     var executedPayment = ExecutePayment(apiContext, payerId, Session[guid] as string);
-                    //If executed payment failed then we will show payment failure message to user  
-                    if (executedPayment.state.ToLower() != "approved")
+                    if (executedPayment.state.ToLower() == "approved")
+                    {
+                        
+                       
+                    }
+                    else
                     {
                         return View("FailureView");
                     }
+                   
                 }
             }
             catch
             {
                 return View("FailureView");
             }
-            MakeReservation(rvm);
-            //on successful payment, show success page to user.  
+           
             return View("SuccessView");
         }
         private PayPal.Api.Payment payment;
@@ -166,15 +168,10 @@ namespace EscapeRoomApp.Controllers
             };
             return this.payment.Execute(apiContext, paymentExecution);
         }
-        private Payment CreatePayment(APIContext apiContext, string redirectUrl,ReservationViewModel rvm)
+        private Payment CreatePayment(APIContext apiContext, string redirectUrl,Reservation reservation)
         {
-            var room = UnitOfWork.Rooms.GetById(rvm.RoomId);
-            Reservation reservation = new Reservation();
-            reservation.NumberOfPlayers = rvm.NumberOfPlayers;
-            reservation.Room = room;
-            var totalPrice = reservation.CalculationTotalPrice(room.StartingPricePerPerson, room.DiscountPerPerson, reservation.NumberOfPlayers);
+            var room = UnitOfWork.Rooms.GetById(reservation.RoomId);
 
-            //create itemlist and add item objects to it  
             var itemList = new ItemList()
             {
                 items = new List<Item>()
@@ -184,7 +181,7 @@ namespace EscapeRoomApp.Controllers
             {
                 name = room.Title,
                 currency = "EUR",
-                price = totalPrice.ToString("0.00"),
+                price = reservation.CalculationTotalPrice(room.StartingPricePerPerson,room.DiscountPerPerson,reservation.NumberOfPlayers).ToString("0.00"),
                 quantity = "1",
                 sku = "sku"
             });
@@ -203,7 +200,7 @@ namespace EscapeRoomApp.Controllers
             {
                 tax = "1",
                 shipping = "0.00",
-                subtotal = totalPrice.ToString("0.00")
+                subtotal = reservation.CalculationTotalPrice(room.StartingPricePerPerson, room.DiscountPerPerson, reservation.NumberOfPlayers).ToString("0.00")
             };
             //Final amount with details  
             var amount = new Amount()
@@ -231,6 +228,27 @@ namespace EscapeRoomApp.Controllers
             // Create a payment using a APIContext  
             return this.payment.Create(apiContext);
         }
+        public Reservation ReservationMapping(ReservationViewModel rvm)
+        {
+            Reservation reservation = new Reservation();
+            rvm.Room = UnitOfWork.Rooms.GetById(rvm.RoomId);
+            reservation.RoomId = rvm.RoomId;
+            reservation.FirstName = rvm.FirstName;
+            reservation.LastName = rvm.LastName;
+            reservation.NumberOfPlayers = rvm.NumberOfPlayers;
+            reservation.GameDate = rvm.GameDate;
+            reservation.GameTime = rvm.GameTime;
+            reservation.TotalPrice = reservation.CalculationTotalPrice(rvm.Room.StartingPricePerPerson, rvm.Room.DiscountPerPerson, rvm.NumberOfPlayers);
 
+            return reservation;
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                UnitOfWork.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

@@ -310,9 +310,12 @@
     <Content Include="Views\SigRContact\Index.cshtml" />
     <Content Include="Views\Reservation\Index.cshtml" />
     <Content Include="Views\Reservation\MakeReservation.cshtml" />
+    <Content Include="Views\Reservation\Failure.cshtml" />
+    <Content Include="Views\Reservation\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Paypal\" />
     <Folder Include="Views\PlayerApi\" />
     <Folder Include="Views\Player\" />
   </ItemGroup>

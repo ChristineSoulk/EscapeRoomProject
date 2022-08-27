@@ -12,7 +12,7 @@ namespace Entities
     {
         public int Id { get; set; }
         public int RoomId { get; set; }
-        public Room Room { get; set; }
+        public virtual Room Room { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int NumberOfPlayers { get; set; }

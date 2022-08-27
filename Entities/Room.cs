@@ -23,14 +23,9 @@ namespace Entities
         public bool IsActive { get; set; }
         public decimal StartingPricePerPerson { get; set; }
         public decimal DiscountPerPerson { get; set; }
-       
-
-
-       
-
         public Room()
         {
-            
+
         }
     }
 }
