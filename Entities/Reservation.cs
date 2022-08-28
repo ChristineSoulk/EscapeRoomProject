@@ -35,6 +35,8 @@ namespace Entities
             set { _TotalPrice = value; }
         }
 
+        public bool IsPayed { get; set; }
+
         public Reservation()
         {
             

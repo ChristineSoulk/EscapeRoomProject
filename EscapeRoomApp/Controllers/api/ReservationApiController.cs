@@ -27,7 +27,7 @@ namespace EscapeRoomApp.Controllers.api
         [HttpPost]
         public IHttpActionResult Create(ReservationViewModel model)
         {
-            _reservationService.Create(model);
+            //MakeReservation(model);
 
             return Ok();
         }

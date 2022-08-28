@@ -45,6 +45,7 @@ namespace Infrastructure.Services
             reservation.GameDate = model.GameDate;
             reservation.GameTime = model.GameTime;
             reservation.TotalPrice = reservation.CalculationTotalPrice(model.Room.StartingPricePerPerson, model.Room.DiscountPerPerson, model.NumberOfPlayers);
+            reservation.IsPayed = model.IsPayed;
 
             return reservation;
         }
