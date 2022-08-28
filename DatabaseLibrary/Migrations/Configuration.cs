@@ -39,7 +39,9 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 16,
                 DiscountPerPerson = 0.05M,
-           
+                ImageUrl = "https://escapethereview.co.uk/wp-content/uploads/2019/03/game-2027.png",
+                VideoId = "64NrDwoaYuU"
+
             };
 
             Room m2 = new Room()
@@ -62,7 +64,8 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 25,
                 DiscountPerPerson = 0.1M,
-              
+                ImageUrl = "https://enigmaescape.gr/wp-content/uploads/2021/04/Rhodes-escape-rooms-2.jpg",
+                VideoId = "T7jrHj3qjc4"
 
             };
 
@@ -85,7 +88,8 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 22,
                 DiscountPerPerson = 0.08M,
-              
+                ImageUrl = "https://www.everyescaperoom.co.uk/data/images/products/355/thumbnail/9e87c42b628d0ddaae453e2ec82cb144.jpg",
+                VideoId = "0i85CJilgdQ"
 
             };
 
@@ -107,7 +111,8 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 18,
                 DiscountPerPerson = 0.06M,
-             
+                ImageUrl = "https://img.grouponcdn.com/deal/22XfEvq2jx1vn7hL99SXn9yEhf9r/22-2000x1200/v1/c870x524.jpg",
+                VideoId = "1TACbGt9dO4"
 
             };
 
@@ -129,7 +134,8 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 20,
                 DiscountPerPerson = 0.1M,
-             
+                ImageUrl = "https://escapethereview.co.uk/wp-content/uploads/2017/04/warbg-e1491755688889.png",
+                VideoId = "1beRQ5WqrPo"
 
             };
 
@@ -151,7 +157,9 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 25,
                 DiscountPerPerson = 0.12M,
-              
+                ImageUrl = "https://i0.wp.com/scareaddicts.com/wp-content/uploads/2019/05/img_5043.jpg?resize=400%2C240",
+                VideoId = "mWdqJfjOP8w"
+
             };
 
             Room m7 = new Room()
@@ -172,7 +180,8 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 24,
                 DiscountPerPerson = 0.12M,
-              
+                ImageUrl = "https://s3-media0.fl.yelpcdn.com/bphoto/_i2AOgUQOu615EQ1b9fyuw/348s.jpg",
+                VideoId = "Tj1Chebkz68"
 
             };
 
@@ -193,7 +202,8 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 20,
                 DiscountPerPerson = 0.1M,
-               
+                ImageUrl = "https://media-cdn.tripadvisor.com/media/photo-s/17/71/a4/65/psychopath-s-den.jpg",
+                VideoId = "LuNhlOziCzc"
             };
 
             Room m9 = new Room()
@@ -214,7 +224,8 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 17,
                 DiscountPerPerson = 0.07M,
-               
+                ImageUrl = "https://thelogicescapesme.com/wp-content/uploads/2017/06/breakin-sherlock.jpg",
+                VideoId = "asaREiqt-7M"
 
             };
 
@@ -235,7 +246,8 @@ namespace DatabaseLibrary.Migrations
                 IsActive = true,
                 StartingPricePerPerson = 25,
                 DiscountPerPerson = 0.1M,
-
+                ImageUrl = "https://static.designmynight.com/uploads/2018/06/Aim-Escape-Room-Psychopaths-Den_041.png",
+                VideoId = "-bVS5uHamck"
             };
 
             context.Rooms.AddOrUpdate(m1,m2,m3,m4,m5,m6,m7,m8,m9,m10);

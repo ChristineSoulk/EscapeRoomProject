@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Entities.Exceptions;
 using Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -73,6 +74,22 @@ namespace EscapeRoomApp.Controllers
             return View(reservation);
         }
 
+        [HttpPost]
+        public ActionResult MakeReservation(ReservationViewModel model)
+        {
+            try
+            {
+                var reservationToBeAdded = _reservationService.MapReservation(model);
+                reservationToBeAdded.IsPayed = false;
+                UnitOfWork.Reservations.Insert(reservationToBeAdded);
+                return View("Index");
+            }
+            catch (Exception ex)
+            {
+                throw new WebAppException(ex.Message, ex);
+            }
+        }
+
         //This is the first phase of paypal payment
         [HttpPost]
         public ActionResult CreatePayment(ReservationViewModel model, string Cancel = null)
@@ -119,18 +136,18 @@ namespace EscapeRoomApp.Controllers
 
                 if (reservationToBeAdded != null)
                 {
-                    //reservationToBeAdded.IsPayed = true;
+                    reservationToBeAdded.IsPayed = true;
                     _reservationService.Create(reservationToBeAdded);
 
                     //Cleanup
                     Session.Remove(payerId);
                     Session.Remove(paymentId);
 
-                    return View("SuccessView");
+                    return View("Success");
                 }
 
                 //There should be a view for when something goes wrong with payments
-                return View("ErrorView");
+                return View("Failure");
             }
             catch
             {
