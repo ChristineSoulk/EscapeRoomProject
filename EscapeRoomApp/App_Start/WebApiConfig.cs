@@ -31,8 +31,7 @@ namespace EscapeRoomApp
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            var cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
-            config.EnableCors(cors);
+            
         }
     }
 }

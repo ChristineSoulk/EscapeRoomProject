@@ -36,7 +36,7 @@ namespace Entities
         }
         public bool IsPayed { get; set; }
 
-        public bool IsPayed { get; set; }
+        
 
         public Reservation()
         {
