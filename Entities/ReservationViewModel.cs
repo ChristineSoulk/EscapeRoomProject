@@ -18,7 +18,6 @@ namespace Entities
         public Room Room { get; set; }
         public bool IsPayed { get; set; }
 
-
         public ReservationViewModel()
         {
 

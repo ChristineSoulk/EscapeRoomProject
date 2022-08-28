@@ -27,7 +27,7 @@ namespace DatabaseLibrary.Migrations
                 "headmaster to find a most precious artefact which has been lost for many decades. Its whereabouts unknown, your " +
                 "search leads you to a mysterious part of the castle where no one has ventured in years.You feel danger lurking around " +
                 "every dark corner... You and your friends must face a great evil in order to complete your mission.The monster guarding " +
-                "the chamber will be like nothing you’ve faced before.Pick up your wands,remember your spells and find your courage, you " +
+                "the chamber will be like nothing youï¿½ve faced before.Pick up your wands,remember your spells and find your courage, you " +
                 "will need all of them for the challenges that lie ahead!",
                 Duration = 60,
                 Genre = Genre.RolePlaying,
@@ -46,7 +46,7 @@ namespace DatabaseLibrary.Migrations
 
             Room m2 = new Room()
             {
-                Title = "Blackwing’s Cave",
+                Title = "Blackwingï¿½s Cave",
                 Description = "Holy padlocks, Blackwing! The evil games-master Doctor Drakker has broken out of jail and is on the loose in " +
                 "Knightsbane City, swearing revenge on his arch nemesis - Blackwing, dark crusader of justice. Drakker's goons have tracked " +
                 "down the location of Blackwing's secret base and riddled it with an onslaught of fiendishly twisted puzzles,trapping you - " +
@@ -66,11 +66,12 @@ namespace DatabaseLibrary.Migrations
                 DiscountPerPerson = 0.1M,
                 ImageUrl = "https://enigmaescape.gr/wp-content/uploads/2021/04/Rhodes-escape-rooms-2.jpg",
                 VideoId = "T7jrHj3qjc4"
+
             };
 
             Room m3 = new Room()
             {
-                Title = "Sherlock’s Despair",
+                Title = "Sherlockï¿½s Despair",
                 Description = "21st of October 1891, London. A dark silence hangs over 221B Baker Street. The great detective Sherlock Holmes has been " +
                 "discovered dead, washed up in the gutters outside a seedy East End opium den. Without his nemesis, the wicked Professor James Moriarty plots " +
                 "world domination from the shadows. You - Sherlock's oldest friends and faithful assistants - are now the only hope of stopping him. You've " +
@@ -89,6 +90,7 @@ namespace DatabaseLibrary.Migrations
                 DiscountPerPerson = 0.08M,
                 ImageUrl = "https://www.everyescaperoom.co.uk/data/images/products/355/thumbnail/9e87c42b628d0ddaae453e2ec82cb144.jpg",
                 VideoId = "0i85CJilgdQ"
+
             };
 
             Room m4 = new Room()
@@ -111,6 +113,7 @@ namespace DatabaseLibrary.Migrations
                 DiscountPerPerson = 0.06M,
                 ImageUrl = "https://img.grouponcdn.com/deal/22XfEvq2jx1vn7hL99SXn9yEhf9r/22-2000x1200/v1/c870x524.jpg",
                 VideoId = "1TACbGt9dO4"
+
             };
 
             Room m5 = new Room()
@@ -133,11 +136,12 @@ namespace DatabaseLibrary.Migrations
                 DiscountPerPerson = 0.1M,
                 ImageUrl = "https://escapethereview.co.uk/wp-content/uploads/2017/04/warbg-e1491755688889.png",
                 VideoId = "1beRQ5WqrPo"
+
             };
 
             Room m6 = new Room()
             {
-                Title = "Butcher’s Lair",
+                Title = "Butcherï¿½s Lair",
                 Description = "Dr Vladimir Knifesblade: university professor by day, serial killer by night. He's an educated man - he knows his classical music, his literature, " +
                 "and which bits of the human body taste best. The FBI have nicknamed him 'The Butcher'. A simple dinner party invitation to you - some of his favourite students " +
                 "- fails to mention that you're the main ingredient on the menu tonight. You've become The Butcher's latest victims, or at least you will be if you don't escape " +
@@ -155,6 +159,7 @@ namespace DatabaseLibrary.Migrations
                 DiscountPerPerson = 0.12M,
                 ImageUrl = "https://i0.wp.com/scareaddicts.com/wp-content/uploads/2019/05/img_5043.jpg?resize=400%2C240",
                 VideoId = "mWdqJfjOP8w"
+
             };
 
             Room m7 = new Room()
@@ -183,9 +188,9 @@ namespace DatabaseLibrary.Migrations
             Room m8 = new Room()
             {
                 Title = "Patient Zero 2150",
-                Description = "Armageddon beckons. The world’s superpowers are no more. Renegade factions vie for domination. Rogue scientists have breached all moral boundaries creating " +
+                Description = "Armageddon beckons. The worldï¿½s superpowers are no more. Renegade factions vie for domination. Rogue scientists have breached all moral boundaries creating " +
                 "pathogens that create non-humans. Nerve agents so nightmarish that they corrupt physically and mentally, turning those exposed into the living dead - zombies. In the subterranean " +
-                "depths of their secret facility, the pathogen has escaped. It must be contained or all humankind, as we know it, will cease to exist. Your mission – contain the bio-threat, secure " +
+                "depths of their secret facility, the pathogen has escaped. It must be contained or all humankind, as we know it, will cease to exist. Your mission ï¿½ contain the bio-threat, secure " +
                 "the facility and escape uninfected. Can you hold your breath for 60 minutes? This high tech terror will test the smartest players.",
                 Duration = 60,
                 Genre = Genre.Thriller,
@@ -204,11 +209,11 @@ namespace DatabaseLibrary.Migrations
             Room m9 = new Room()
             {
                 Title = "Spy Heroes",
-                Description = "You’re going undercover. Your friend James has gone off the grid and you need to check if he’s OK. You swing by his restaurant – the lights are on but James isn’t home. " +
-                "The door slams shut, trapping you inside. James liked his security high-end. A note on the table tells you that James is actually an international spy – this is all a cover for his " +
-                "espionage escapades. It’s his HQ and he has been snatched by the henchmen of his evil arch-enemy – Mr Supervillain. You must solve all the puzzles and clues in the room and deploy the " +
-                "huge array of gadgets to save your super-spy pal. As well as hardware and gizmos, you’ll need to think with the cunning of an ace agent – logic, speed and daring are required. Great " +
-                "for all the family – 10 to 60 welcome, comfortable clothes are advised.",
+                Description = "Youï¿½re going undercover. Your friend James has gone off the grid and you need to check if heï¿½s OK. You swing by his restaurant ï¿½ the lights are on but James isnï¿½t home. " +
+                "The door slams shut, trapping you inside. James liked his security high-end. A note on the table tells you that James is actually an international spy ï¿½ this is all a cover for his " +
+                "espionage escapades. Itï¿½s his HQ and he has been snatched by the henchmen of his evil arch-enemy ï¿½ Mr Supervillain. You must solve all the puzzles and clues in the room and deploy the " +
+                "huge array of gadgets to save your super-spy pal. As well as hardware and gizmos, youï¿½ll need to think with the cunning of an ace agent ï¿½ logic, speed and daring are required. Great " +
+                "for all the family ï¿½ 10 to 60 welcome, comfortable clothes are advised.",
                 Duration = 60,
                 Genre = Genre.KidsFriendly,
                 Capacity = 5,
@@ -227,9 +232,9 @@ namespace DatabaseLibrary.Migrations
             Room m10 = new Room()
             {
                 Title = "Psychopath's Den",
-                Description = "You know the instant the door slams shut behind you – bad things happen here. Evil is Omnipresent. Heart-thumping terror builds relentlessly as each nerve-shredding minute " +
+                Description = "You know the instant the door slams shut behind you ï¿½ bad things happen here. Evil is Omnipresent. Heart-thumping terror builds relentlessly as each nerve-shredding minute " +
                 "creeps past. Can you escape a dreadful fate or will you become another blood-stained or blood-drained statistic? Amid the gore-caked instruments of torture, hemmed in by the blood-spattered " +
-                "walls you must keep your wits as sharp as his scalpels to avoid his clutches – he is very close, somewhere in the shadows. Only by solving his crazed, fiendish puzzles can you, quite literally, " +
+                "walls you must keep your wits as sharp as his scalpels to avoid his clutches ï¿½ he is very close, somewhere in the shadows. Only by solving his crazed, fiendish puzzles can you, quite literally, " +
                 "save your skin. Complete with a real crematorium and gallons of O-neg this is the ideal escape experience for lovers of horror and adrenaline-fuelled frights.",
                 Duration = 70,
                 Genre = Genre.Horror,
