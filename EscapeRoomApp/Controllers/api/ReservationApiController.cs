@@ -1,4 +1,6 @@
 ﻿using Entities;
+using Infrastructure.Interfaces;
+using Infrastructure.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,23 +12,23 @@ namespace EscapeRoomApp.Controllers.api
 {
     public class ReservationApiController : BaseClassApiController
     {
+        private readonly IReservationService _reservationService;
+
+        public ReservationApiController(IReservationService reservationService)
+        {
+            _reservationService = reservationService;
+        }
+
         [HttpGet]
         public IEnumerable<Reservation> GetAllReservations()
         {
             return UnitOfWork.Reservations.GetAll().ToList();
         }
         [HttpPost]
-        public IHttpActionResult Create(Reservation reservation)
+        public IHttpActionResult Create(ReservationViewModel model)
         {
-            
-            if (ModelState.IsValid)
-            {
-                UnitOfWork.Reservations.Insert(reservation);
-            }
+            _reservationService.Create(model);
 
-            
-
-            
             return Ok();
         }
         protected override void Dispose(bool disposing)
