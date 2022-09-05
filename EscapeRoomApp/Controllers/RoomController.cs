@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Infrastructure.ObserverManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,11 @@ namespace EscapeRoomApp.Controllers
 {
     public class RoomController : BaseClassController
     {
+        private readonly ISubscribersNotifier _subscribersNotifier;
+        public RoomController(ISubscribersNotifier notifier)
+        {
+            _subscribersNotifier = notifier;
+        }
         // GET: Admin/Room
         public ActionResult Index()
         {
@@ -32,6 +38,7 @@ namespace EscapeRoomApp.Controllers
                 var result = postTask.Result;
                 if (result.IsSuccessStatusCode)
                 {
+                    _subscribersNotifier.NotifySubscribersForNewRoom();
                     return RedirectToAction("Index");
                 }
                 ModelState.AddModelError(string.Empty, "Server Error!");

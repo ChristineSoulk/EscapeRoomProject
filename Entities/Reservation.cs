@@ -15,6 +15,8 @@ namespace Entities
         public virtual Room Room { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
         public int NumberOfPlayers { get; set; }
         [NotMapped]
         public DateTime GameDate { get; set; }
@@ -34,6 +36,7 @@ namespace Entities
             get { return _TotalPrice; }
             set { _TotalPrice = value; }
         }
+        public bool IsSubscribed { get; set; }
         public bool IsPayed { get; set; }
 
         

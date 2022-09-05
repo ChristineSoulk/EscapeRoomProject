@@ -16,11 +16,13 @@ namespace EscapeRoomApp.Controllers
     {
         private readonly IPaypalPaymentService _paypalPaymentsService;
         private readonly IReservationService _reservationService;
+        private readonly IEmailService _email;
 
-        public ReservationController(IPaypalPaymentService paypalPaymentsService, IReservationService reservationService)
+        public ReservationController(IPaypalPaymentService paypalPaymentsService, IReservationService reservationService, IEmailService email)
         {
             _paypalPaymentsService = paypalPaymentsService;
             _reservationService = reservationService;
+            _email = email;
         }
 
         // GET: Reservation
@@ -83,6 +85,7 @@ namespace EscapeRoomApp.Controllers
             {
                 var reservationToBeAdded = _reservationService.MapReservation(model);
                 reservationToBeAdded.IsPayed = false;
+                _email.SendEmailForReservation(model);
                 UnitOfWork.Reservations.Insert(reservationToBeAdded);
                 return View("Index");
             }
@@ -140,6 +143,7 @@ namespace EscapeRoomApp.Controllers
                 {
                     reservationToBeAdded.IsPayed = true;
                     _reservationService.Create(reservationToBeAdded);
+                    _email.SendEmailForReservation(reservationToBeAdded);
 
                     //Cleanup
                     Session.Remove(payerId);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Infrastructure.Interfaces;
+using Infrastructure.ObserverManager;
 using Infrastructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin;
@@ -40,6 +41,7 @@ namespace EscapeRoomApp
             //Registering the rest of the services.
             services.AddTransient<IPaypalPaymentService, PaypalPaymentService>();
             services.AddTransient<IReservationService, ReservationService>();
+            services.AddTransient<ISubscribersNotifier, SubscribersNotifier>();
         }
     }
 }

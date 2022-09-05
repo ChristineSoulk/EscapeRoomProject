@@ -13,7 +13,7 @@ namespace Entities
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-
+        public bool IsSubscribed { get; set; }
 
         public Player()
         {
