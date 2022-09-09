@@ -60,11 +60,11 @@
     <Compile Include="Core\IGenericRepository.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\Repositories\IPlayerRepository.cs" />
-    <Compile Include="Core\Repositories\IReservationRepository.cs" />
+    <Compile Include="Core\Repositories\IBookingRepository.cs" />
     <Compile Include="Core\Repositories\IRoomRepository.cs" />
     <Compile Include="Persistance\GenericRepository.cs" />
     <Compile Include="Persistance\Repositories\PlayerRepository.cs" />
-    <Compile Include="Persistance\Repositories\ReservationRepository.cs" />
+    <Compile Include="Persistance\Repositories\BookingRepository.cs" />
     <Compile Include="Persistance\Repositories\RoomRepository.cs" />
     <Compile Include="Persistance\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

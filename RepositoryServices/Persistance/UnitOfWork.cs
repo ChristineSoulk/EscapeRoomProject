@@ -17,7 +17,7 @@ namespace RepositoryServices.Persistance
 
         public IRoomRepository Rooms { get; private set; }
 
-        public IReservationRepository Reservations { get; private set; }
+        public IBookingRepository Bookings { get; private set; }
 
         
 
@@ -26,7 +26,7 @@ namespace RepositoryServices.Persistance
             db = context;
             Players = new PlayerRepository(context);
             Rooms = new RoomRepository(context);
-            Reservations = new ReservationRepository(context);
+            Bookings = new BookingRepository(context);
             
         }
 

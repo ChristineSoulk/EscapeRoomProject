@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Entities.Models
 {
-    public class Reservation 
+    public class Booking 
     {
         public int Id { get; set; }
         public int RoomId { get; set; }
@@ -41,7 +41,7 @@ namespace Entities
 
         
 
-        public Reservation()
+        public Booking()
         {
             
         }

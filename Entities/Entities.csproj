@@ -61,13 +61,13 @@
     <Compile Include="Enums\Genre.cs" />
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Exceptions\WebAppException.cs" />
-    <Compile Include="Models\CreatedPaymentModel.cs" />
-    <Compile Include="Models\PaypalConfiguration.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="PaypalModels\CreatedPaymentModel.cs" />
+    <Compile Include="PaypalModels\PaypalConfiguration.cs" />
+    <Compile Include="Models\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reservation.cs" />
-    <Compile Include="ReservationViewModel.cs" />
-    <Compile Include="Room.cs" />
+    <Compile Include="Models\Booking.cs" />
+    <Compile Include="ViewModels\BookingViewModel.cs" />
+    <Compile Include="Models\Room.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

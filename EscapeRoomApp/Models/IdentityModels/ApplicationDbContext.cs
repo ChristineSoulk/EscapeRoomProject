@@ -17,7 +17,5 @@ namespace EscapeRoomApp.Models.IdentityModels
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<Entities.Room> Rooms { get; set; }
     }
 }

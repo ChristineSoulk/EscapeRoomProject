@@ -1,13 +1,14 @@
 ﻿using Entities.Enums;
+using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Entities.ViewModels
 {
-    public class ReservationViewModel
+    public class BookingViewModel
     {
         public int RoomId { get; set; }      
         public string FirstName { get; set; }
@@ -21,7 +22,7 @@ namespace Entities
         public bool IsSubscribed { get; set; }
         public bool IsPayed { get; set; }
 
-        public ReservationViewModel()
+        public BookingViewModel()
         {
 
         }

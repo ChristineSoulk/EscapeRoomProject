@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace EscapeRoomApp
+namespace EscapeRoomApp.DIhelpers
 {
     public class DefaultDependencyResolver : IDependencyResolver
     {

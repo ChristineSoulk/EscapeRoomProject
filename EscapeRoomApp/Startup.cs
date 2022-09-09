@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Http.Controllers;
 using System.Web.Mvc;
+using EscapeRoomApp.DIhelpers;
 using Infrastructure.Interfaces;
 using Infrastructure.ObserverManager;
 using Infrastructure.Services;
@@ -22,7 +24,7 @@ namespace EscapeRoomApp
 
             var services = new ServiceCollection();
             ConfigureServices(services);
-
+            
             //This is a default dependency resolver to resolve/get registered services
             var resolver = new DefaultDependencyResolver(services.BuildServiceProvider());
 
@@ -35,13 +37,16 @@ namespace EscapeRoomApp
             //Registering controllers(without this the controllers will NOT run, so do not remove this)
             services.AddControllersAsServices(typeof(Startup).Assembly.GetExportedTypes()
                        .Where(t => !t.IsAbstract && !t.IsGenericTypeDefinition)
-                       .Where(t => typeof(IController).IsAssignableFrom(t)
-                            || t.Name.EndsWith("Controller", StringComparison.OrdinalIgnoreCase)));
+                       .Where(t => typeof(IHttpController).IsAssignableFrom(t)
+                            || t.Name.EndsWith("ApiController", StringComparison.OrdinalIgnoreCase)));
 
             //Registering the rest of the services.
             services.AddTransient<IPaypalPaymentService, PaypalPaymentService>();
-            services.AddTransient<IReservationService, ReservationService>();
+            services.AddTransient<IBookingService, BookingService>();
+            services.AddTransient<IEmailService, EmailService>();
             services.AddTransient<ISubscribersNotifier, SubscribersNotifier>();
+
+            
         }
     }
 }

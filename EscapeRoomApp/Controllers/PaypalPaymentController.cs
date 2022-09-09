@@ -1,66 +1,44 @@
-﻿using Entities;
+﻿using DatabaseLibrary;
+using Entities;
 using Entities.Exceptions;
+using Entities.Models;
+using Entities.ViewModels;
 using Infrastructure.Interfaces;
 using Infrastructure.Services;
 using Microsoft.Owin.Security.Provider;
+using RepositoryServices.Persistance;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 
 namespace EscapeRoomApp.Controllers
 {
-    public class ReservationController : BaseClassController
+    public class BookingController : Controller
     {
         private readonly IPaypalPaymentService _paypalPaymentsService;
-        private readonly IReservationService _reservationService;
+        private readonly IBookingService _BookingService;
         private readonly IEmailService _email;
+        protected ApplicationContext db = new ApplicationContext();
+        protected UnitOfWork UnitOfWork;
 
-        public ReservationController(IPaypalPaymentService paypalPaymentsService, IReservationService reservationService, IEmailService email)
+        public BookingController()
         {
-            _paypalPaymentsService = paypalPaymentsService;
-            _reservationService = reservationService;
-            _email = email;
+            UnitOfWork = new UnitOfWork(db);
+            _paypalPaymentsService = new PaypalPaymentService(_BookingService);
+            _email = new EmailService();
+            _BookingService = new BookingService();
         }
 
-        // GET: Reservation
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult GetAllReservations()
-        {
-            IEnumerable<Reservation> reservations = null;
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("https://localhost:44368/api/");
-                var responseTask = client.GetAsync("ReservationApi");
-                responseTask.Wait();
-
-                var result = responseTask.Result;
-                if (result.IsSuccessStatusCode)
-                {
-                    var readTask = result.Content.ReadAsAsync<List<Reservation>>();
-                    reservations = readTask.Result;
-                }
-                else
-                {
-                    reservations = Enumerable.Empty<Reservation>();
-                    ModelState.AddModelError(string.Empty, "Server Error");
-                }
-            }
-            return View(reservations);
-        }
-
-        public ActionResult MakeReservation(int roomId)
+        public ActionResult PreparationForPayment(int roomId)
         {
             var room = UnitOfWork.Rooms.GetById(roomId);
-            var reservation = new Reservation();
-            reservation.RoomId = roomId;
-            reservation.Room = room;
+            var booking = new Booking();
+            booking.RoomId = roomId;
+            booking.Room = room;
 
             DateTime startTime = DateTime.Parse("18:00:00");
             DateTime endTime = DateTime.Parse("22:00:00");
@@ -75,29 +53,13 @@ namespace EscapeRoomApp.Controllers
 
             ViewBag.HourList = list;
 
-            return View(reservation);
+            return View(booking);
         }
 
-        [HttpPost]
-        public ActionResult MakeReservation(ReservationViewModel model)
-        {
-            try
-            {
-                var reservationToBeAdded = _reservationService.MapReservation(model);
-                reservationToBeAdded.IsPayed = false;
-                _email.SendEmailForReservation(model);
-                UnitOfWork.Reservations.Insert(reservationToBeAdded);
-                return View("Index");
-            }
-            catch (Exception ex)
-            {
-                throw new WebAppException(ex.Message, ex);
-            }
-        }
 
         //This is the first phase of paypal payment
         [HttpPost]
-        public ActionResult CreatePayment(ReservationViewModel model, string Cancel = null)
+        public ActionResult CreatePayment(BookingViewModel model, string Cancel = null)
         {
             try
             {
@@ -108,7 +70,7 @@ namespace EscapeRoomApp.Controllers
 
                 Session.Add("paymentId", paypalCreatedModel.PaymentId);
 
-                //I save the reservation model to this Session so I can retrieve it later to add it to DB
+                //I save the Booking model to this Session so I can retrieve it later to add it to DB
                 Session.Add(paypalCreatedModel.PaymentId, model);
 
                 return Redirect(paypalCreatedModel.PaypalRedirectUrl);
@@ -120,6 +82,7 @@ namespace EscapeRoomApp.Controllers
 
         }
 
+        [HttpPost]
         //This is the second and final phase of paypal payment
         public ActionResult ExecutePayment(string Cancel = null)
         {
@@ -137,13 +100,13 @@ namespace EscapeRoomApp.Controllers
                 }
 
                 //Bring model from session so it can be added to db
-                var reservationToBeAdded = Session[paymentId] as ReservationViewModel;
+                var BookingToBeAdded = Session[paymentId] as BookingViewModel;
 
-                if (reservationToBeAdded != null)
+                if (BookingToBeAdded != null)
                 {
-                    reservationToBeAdded.IsPayed = true;
-                    _reservationService.Create(reservationToBeAdded);
-                    _email.SendEmailForReservation(reservationToBeAdded);
+                    BookingToBeAdded.IsPayed = true;
+                    _BookingService.Create(BookingToBeAdded);
+                    _email.SendEmailForBooking(BookingToBeAdded);
 
                     //Cleanup
                     Session.Remove(payerId);

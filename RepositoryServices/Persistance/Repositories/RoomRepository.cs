@@ -1,5 +1,6 @@
 ﻿using DatabaseLibrary;
 using Entities;
+using Entities.Models;
 using RepositoryServices.Core.Repositories;
 using System;
 using System.Collections.Generic;

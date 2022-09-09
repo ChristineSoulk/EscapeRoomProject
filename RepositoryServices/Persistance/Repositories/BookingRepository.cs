@@ -1,5 +1,6 @@
 ﻿using DatabaseLibrary;
 using Entities;
+using Entities.Models;
 using RepositoryServices.Core.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace RepositoryServices.Persistance.Repositories
 {
-    public class ReservationRepository : GenericRepository<Reservation>, IReservationRepository
+    public class BookingRepository : GenericRepository<Booking>, IBookingRepository
     {
-        public ReservationRepository(ApplicationContext context) : base(context)
+        public BookingRepository(ApplicationContext context) : base(context)
         {
         }
-        public List<Reservation> GetReservations()
+        public List<Booking> GetReservations()
         {
             var reservationList = model.Include(y => y.Room).ToList();
             

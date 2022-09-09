@@ -1,4 +1,6 @@
 ﻿using Entities;
+using Entities.Models;
+using RepositoryServices.Persistance;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +10,21 @@ using System.Web.Http;
 
 namespace EscapeRoomApp.Controllers.api
 {
-    public class PlayerApiController : BaseClassApiController
+    public class PlayerApiController : ApiController
     {
+        protected UnitOfWork UnitOfWork;
         [HttpGet]
         public IEnumerable<Player> GetPlayers()
         {
             return UnitOfWork.Players.GetAll();
         }
+
         [HttpGet]
         public Player GetPlayer(int? id)
         {
             return UnitOfWork.Players.GetById(id);
         }
+
         [HttpPost]
         public IHttpActionResult Post(Player player)
         {
@@ -30,6 +35,7 @@ namespace EscapeRoomApp.Controllers.api
 
             return Ok(player);
         }
+
         [HttpPut]
         public IHttpActionResult UpdateDataOfPlayer(Player newPlayerData)
         {
@@ -42,6 +48,7 @@ namespace EscapeRoomApp.Controllers.api
 
             return Ok();
         }
+
         [HttpDelete]
         public IHttpActionResult Delete(int? id)
         {
@@ -50,6 +57,15 @@ namespace EscapeRoomApp.Controllers.api
             UnitOfWork.Players.Delete(id);
 
             return Ok();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                UnitOfWork.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

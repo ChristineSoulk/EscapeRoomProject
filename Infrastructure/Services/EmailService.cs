@@ -1,5 +1,6 @@
 ﻿using DatabaseLibrary;
 using Entities;
+using Entities.ViewModels;
 using Infrastructure.Interfaces;
 using RepositoryServices.Persistance;
 using System;
@@ -21,11 +22,11 @@ namespace Infrastructure.Services
             _unitOfWork = new UnitOfWork(db);
         }
 
-        public void SendEmailForReservation(ReservationViewModel reservation)
+        public void SendEmailForBooking(BookingViewModel Booking)
         {
             string subject = "The Escape Room Project!";
-            string htmlBody = this.CreateEmailBodyForReservation(reservation);
-            MailMessage mailMessage = this.ComposeEmail(subject, htmlBody, reservation.Email);
+            string htmlBody = this.CreateEmailBodyForBooking(Booking);
+            MailMessage mailMessage = this.ComposeEmail(subject, htmlBody, Booking.Email);
             this.MailTransfer(mailMessage);
 
         }
@@ -62,18 +63,18 @@ namespace Infrastructure.Services
             }
         }
 
-        //Creating Email Body for Reservation details and new rooms
-        public string CreateEmailBodyForReservation(ReservationViewModel reservation)
+        //Creating Email Body for Booking details and new rooms
+        public string CreateEmailBodyForBooking(BookingViewModel Booking)
         {
-            var room = _unitOfWork.Rooms.GetById(reservation.RoomId);
+            var room = _unitOfWork.Rooms.GetById(Booking.RoomId);
                 string body = $@"<html>
                                 <head>    
                                     <title></title>
                                 </head>
                                 <body>
-                                    <h3>Reservation Details</h3>
-                                    <p>Dear {reservation.FirstName} {reservation.LastName}</p>
-                                    <p>You have made a reservation for room {room.Title} on {reservation.GameDate.ToShortDateString()} at {reservation.GameTime.ToShortTimeString()} pm.</p>
+                                    <h3>Booking Details</h3>
+                                    <p>Dear {Booking.FirstName} {Booking.LastName}</p>
+                                    <p>You have made a Booking for room {room.Title} on {Booking.GameDate.ToShortDateString()} at {Booking.GameTime.ToShortTimeString()} pm.</p>
                                     <br />
                                     <p>Anikitoi,Peoplecert CB16</p>
                                 </body>
@@ -101,7 +102,7 @@ namespace Infrastructure.Services
                 var emailList = _unitOfWork.Players.GetAll()
                                       .Where(x => x.IsSubscribed == true)
                                       .Select(x => x.Email)
-                                      .Union(_unitOfWork.Reservations.GetAll()
+                                      .Union(_unitOfWork.Bookings.GetAll()
                                                                     .Where(x => x.IsSubscribed == true)
                                                                     .Select(x => x.Email))
                                                                     .Distinct().ToList();

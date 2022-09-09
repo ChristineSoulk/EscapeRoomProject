@@ -16,10 +16,10 @@ namespace Infrastructure.ObserverManager
         protected ApplicationContext db = new ApplicationContext();
 
         protected UnitOfWork unitOfWork;
-        public SubscribersNotifier()
+        public SubscribersNotifier(IEmailService emailService)
         {
             unitOfWork = new UnitOfWork(db);
-            _emailService = new EmailService();
+            _emailService = emailService;
         }
         public void NotifySubscribersForNewRoom()
         {
@@ -28,7 +28,7 @@ namespace Infrastructure.ObserverManager
             emailList.ForEach(x => _emailService.SendEmailForNewRoom(x));
 
         }
-
+    
 
     }
 }    
