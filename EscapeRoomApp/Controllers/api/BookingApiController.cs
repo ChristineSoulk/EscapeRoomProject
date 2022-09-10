@@ -17,17 +17,15 @@ using System.Web.Http.Cors;
 namespace EscapeRoomApp.Controllers.api
 {
     
-    public class BookingApiController : ApiController
+    public class BookingApiController : BaseApiController
     {
-        private readonly ApplicationContext db = new ApplicationContext();
-        private readonly UnitOfWork UnitOfWork;
         private readonly IBookingService _BookingService;
         private readonly IEmailService _email;
 
-        public BookingApiController(IBookingService service)
+        public BookingApiController(IBookingService service,IEmailService email)
         {
-            UnitOfWork = new UnitOfWork(db);
             _BookingService = service;
+            _email = email;
         }
         
 

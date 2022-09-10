@@ -15,7 +15,7 @@ namespace EscapeRoomApp.Controllers.api
     {
         protected ApplicationContext db = new ApplicationContext();
         protected UnitOfWork UnitOfWork;
-        protected ISubscribersNotifier _notifier;
+        
         public BaseApiController()
         {
             UnitOfWork = new UnitOfWork(db);

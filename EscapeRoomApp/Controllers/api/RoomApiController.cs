@@ -14,13 +14,15 @@ namespace EscapeRoomApp.Controllers.api
 {
     public class RoomApiController : BaseApiController
     {
+
         
-        //protected readonly ISubscribersNotifier notifier;
-        //public RoomApiController()
-        //{
-        //    
-        //}
-       
+        protected readonly ISubscribersNotifier _notifier;
+        
+        public RoomApiController(ISubscribersNotifier notifier)
+        {
+            _notifier = notifier;
+        }
+
         [HttpGet]
         public IEnumerable<Room> GetRooms()
         {

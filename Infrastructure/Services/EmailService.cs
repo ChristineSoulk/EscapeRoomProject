@@ -38,6 +38,26 @@ namespace Infrastructure.Services
             MailMessage mailMessage = this.ComposeEmail(subject, htmlBody, email);
             this.MailTransfer(mailMessage);
         }
+
+        public void ContactEmail(ContactViewModel contactmodel)
+        {
+            string subject = $"Mail From {contactmodel.Name}";
+            MailMessage mailMessage = new MailMessage();
+            mailMessage.From = new MailAddress(contactmodel.Email);
+            mailMessage.To.Add("TheEscapeRoomProject@gmail.com");
+            mailMessage.Subject = subject;
+            mailMessage.Body = contactmodel.Message;
+            mailMessage.IsBodyHtml = false;
+
+            using(SmtpClient client = new SmtpClient("smtp.gmail.com", 587))
+            {
+                client.UseDefaultCredentials = true;
+                client.EnableSsl = true;
+                client.Credentials = new System.Net.NetworkCredential("TheEscapeRoomProject@gmail.com", "siohtmvoasqjhenj");
+                client.Send(mailMessage);
+            }
+        }
+
         // Compose Email
         public MailMessage ComposeEmail(string subject, string body, string email)
         {

@@ -10,9 +10,8 @@ using System.Web.Http;
 
 namespace EscapeRoomApp.Controllers.api
 {
-    public class PlayerApiController : ApiController
+    public class PlayerApiController : BaseApiController
     {
-        protected UnitOfWork UnitOfWork;
         [HttpGet]
         public IEnumerable<Player> GetPlayers()
         {
@@ -26,7 +25,7 @@ namespace EscapeRoomApp.Controllers.api
         }
 
         [HttpPost]
-        public IHttpActionResult Post(Player player)
+        public IHttpActionResult Create(Player player)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Not a Valid Data");

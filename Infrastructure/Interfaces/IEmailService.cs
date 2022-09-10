@@ -14,5 +14,6 @@ namespace Infrastructure.Interfaces
         void SendEmailForBooking(BookingViewModel Booking);
         void SendEmailForNewRoom(string email);
         List<string> GetEmailAddressesOfSubscribers();
+        void ContactEmail(ContactViewModel contactmodel);
     }
 }

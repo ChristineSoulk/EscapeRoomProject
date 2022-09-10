@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entities.ViewModels
 {
-    internal class ContactViewModel
+    public class ContactViewModel
     {
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Message { get; set; }
     }
 }

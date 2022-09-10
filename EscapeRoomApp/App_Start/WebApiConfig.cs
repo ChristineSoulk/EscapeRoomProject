@@ -28,11 +28,11 @@ namespace EscapeRoomApp
             //config.MapHttpAttributeRoutes();
            
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{Action}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{Action}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
 
             
         }
