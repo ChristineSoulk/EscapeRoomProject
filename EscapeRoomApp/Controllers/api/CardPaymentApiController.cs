@@ -4,31 +4,26 @@ using Infrastructure.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace EscapeRoomApp.Controllers.api
 {
-    public class ReservationApiController : BaseClassApiController
+    public class CardPaymentApiController : BaseClassApiController
     {
         private readonly IReservationService _reservationService;
 
-        public ReservationApiController(IReservationService reservationService)
+        public CardPaymentApiController()
         {
-            _reservationService = reservationService;
+            _reservationService = new ReservationService();
         }
 
-        [HttpGet]
-        public IEnumerable<Reservation> GetAllReservations()
-        {
-            return UnitOfWork.Reservations.GetAll().ToList();
-        }
+
         [HttpPost]
         public IHttpActionResult Post(ReservationViewModel model)
         {
             var reservation = _reservationService.MapReservation(model);
-            reservation.IsPayed = false;
+            reservation.IsPayed = true;
             if (ModelState.IsValid)
             {
                 UnitOfWork.Reservations.Insert(reservation);

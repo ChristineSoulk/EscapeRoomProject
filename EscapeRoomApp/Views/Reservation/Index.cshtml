@@ -1,8 +1,40 @@
-﻿
+﻿@model Entities.Reservation
+
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="title">Booking Detais for @Model.Room.Title</h2>
+
+
+<p><strong>First Name: </strong>   @Model.FirstName</p>
+<br />
+<p><strong>Last Name: </strong>   @Model.LastName</p>
+<br />
+<p><strong>Game date: </strong>   @Model.GameDate.ToShortDateString()   @Model.GameTime.ToShortTimeString()</p>
+<br />
+<p><strong>Number of Players: </strong>   @Model.NumberOfPlayers</p>
+<br />
+<p><strong>Total price: </strong>   @Model.CalculationTotalPrice(Model.Room.StartingPricePerPerson, Model.Room.DiscountPerPerson, Model.NumberOfPlayers).ToString("F")</p>
+<br />
+
+<form method="post">
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.RoomId, Model.RoomId)
+    @Html.HiddenFor(m => m.Room, Model.Room)
+    @Html.HiddenFor(m => m.FirstName, Model.FirstName)
+    @Html.HiddenFor(t => t.LastName, Model.LastName)
+    @Html.HiddenFor(m => m.GameDate, Model.GameDate)
+    @Html.HiddenFor(m => m.GameTime, Model.GameTime)
+    @Html.HiddenFor(m => m.NumberOfPlayers, Model.NumberOfPlayers)
+
+
+    <input type="image" formaction="@Url.Action("CreatePayment", "Reservation")" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal"/>
+</form>
+<br />
+<br />
+<p><a href="http://localhost:4200/Book/@Model.RoomId" class="btn btn-danger">Go Back</a></p>
 

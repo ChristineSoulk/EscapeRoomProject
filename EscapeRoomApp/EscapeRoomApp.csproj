@@ -240,6 +240,7 @@
     <Compile Include="ChatHub.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\api\BaseClassApiController.cs" />
+    <Compile Include="Controllers\api\CardPaymentApiController.cs" />
     <Compile Include="Controllers\BaseClassController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\api\PlayerApiController.cs" />
@@ -338,7 +339,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Paypal\" />
+    <Folder Include="Views\CardPayment\" />
     <Folder Include="Views\PlayerApi\" />
     <Folder Include="Views\Player\" />
   </ItemGroup>

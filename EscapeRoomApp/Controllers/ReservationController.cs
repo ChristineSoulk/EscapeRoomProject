@@ -24,9 +24,15 @@ namespace EscapeRoomApp.Controllers
         }
 
         // GET: Reservation
-        public ActionResult Index()
+        public ActionResult Index(int roomId, string firstName, string lastName, int numberOfPlayers, string gameDate, string gameTime)
         {
-            return View();
+            var room = db.Rooms.Find(roomId);
+            DateTime playDate = Convert.ToDateTime(gameDate);
+            DateTime playTime = Convert.ToDateTime(gameTime);
+            DateTime newTime = playTime.AddHours(-3);
+            var reservation = new Reservation() { Room = room, RoomId = room.Id, FirstName = firstName, LastName = lastName, NumberOfPlayers = numberOfPlayers, GameDate = playDate, GameTime = newTime };
+            reservation.TotalPrice = reservation.CalculationTotalPrice(room.StartingPricePerPerson, room.DiscountPerPerson, numberOfPlayers);
+            return View(reservation);
         }
 
         public ActionResult GetAllReservations()
@@ -76,21 +82,6 @@ namespace EscapeRoomApp.Controllers
             return View(reservation);
         }
 
-        [HttpPost]
-        public ActionResult MakeReservation(ReservationViewModel model)
-        {
-            try
-            {
-                var reservationToBeAdded = _reservationService.MapReservation(model);
-                reservationToBeAdded.IsPayed = false;
-                UnitOfWork.Reservations.Insert(reservationToBeAdded);
-                return View("Index");
-            }
-            catch (Exception ex)
-            {
-                throw new WebAppException(ex.Message, ex);
-            }
-        }
 
         //This is the first phase of paypal payment
         [HttpPost]
@@ -139,6 +130,7 @@ namespace EscapeRoomApp.Controllers
                 if (reservationToBeAdded != null)
                 {
                     reservationToBeAdded.IsPayed = true;
+                    reservationToBeAdded.GameTime = reservationToBeAdded.GameTime.AddHours(-3);
                     _reservationService.Create(reservationToBeAdded);
 
                     //Cleanup
