@@ -10,7 +10,7 @@ namespace RepositoryServices.Core.Repositories
 {
     public interface IBookingRepository : IGenericRepository<Booking>
     {
-        List<Reservation> GetReservations();
+        List<Booking> GetReservations();
        
         
     }
