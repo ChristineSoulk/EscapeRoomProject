@@ -37,7 +37,7 @@
         @Html.LabelFor(m => m.NumberOfPlayers)
         @Html.DropDownListFor(m => m.NumberOfPlayers, Enumerable.Range(2, Model.Room.Capacity - 1).Select(i => new SelectListItem
         {
-            Text = i.ToString() + " Players / "
+            Text = i.ToString() + " ApplicationUsers / "
        + (Model.NumberOfPlayers > 2 ? (Model.Room.StartingPricePerPerson * i) - (Model.Room.StartingPricePerPerson * i * Model.Room.DiscountPerPerson)
                   : Model.Room.StartingPricePerPerson * i) + "EUR",
             Value = i.ToString()

@@ -8,6 +8,8 @@ namespace EscapeRoomApp.Models.AccountBindingModels
 {
     public class RegisterBindingModel
     {
+        
+
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -22,5 +24,6 @@ namespace EscapeRoomApp.Models.AccountBindingModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
     }
 }

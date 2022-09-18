@@ -36,7 +36,7 @@ namespace EscapeRoomApp.Controllers.api
         }
 
         [HttpPost]
-        public IHttpActionResult BookNow(BookingViewModel model)
+        public IHttpActionResult StoreBooking(BookingViewModel model)
         {
             //BookingService _BookingService =new BookingService();
 

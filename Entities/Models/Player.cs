@@ -20,6 +20,6 @@ namespace Entities.Models
 
         }
 
-        // γειαααα
+        
     }
 }

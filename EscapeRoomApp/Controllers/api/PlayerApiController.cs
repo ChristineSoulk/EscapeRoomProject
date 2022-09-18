@@ -12,6 +12,7 @@ namespace EscapeRoomApp.Controllers.api
 {
     public class PlayerApiController : BaseApiController
     {
+        
         [HttpGet]
         public IEnumerable<Player> GetPlayers()
         {

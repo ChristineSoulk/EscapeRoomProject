@@ -1,4 +1,4 @@
-namespace EscapeRoomApp.Migrations
+﻿namespace EscapeRoomApp.Migrations
 {
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -16,22 +16,25 @@ namespace EscapeRoomApp.Migrations
 
         protected override void Seed(EscapeRoomApp.Models.IdentityModels.ApplicationDbContext context)
         {
-            if(!context.Roles.Any(x => x.Name == "Admin"))
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
+            //  to avoid creating duplicate seed data.
+            if (!context.Roles.Any(x => x.Name == "Admin"))
             {
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
                 var role = new IdentityRole() { Name = "Admin" };
                 manager.Create(role);
             }
-            if(!context.Roles.Any(x => x.Name == "Player"))
+            if (!context.Roles.Any(x => x.Name == "ApplicationUser"))
             {
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole() { Name = "Player" };
+                var role = new IdentityRole() { Name = "ApplicationUser" };
                 manager.Create(role);
             }
-           
-
+            
         }
     }
 }

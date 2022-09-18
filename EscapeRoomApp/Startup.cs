@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Controllers;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 using System.Web.Routing;
 using EscapeRoomApp.DIhelpers;
+using EscapeRoomApp.Providers;
 using Infrastructure.Interfaces;
 using Infrastructure.ObserverManager;
 using Infrastructure.Services;
@@ -23,11 +25,11 @@ namespace EscapeRoomApp
         {
             ConfigureAuth(app);
             app.MapSignalR();
-            
+           
 
             var services = new ServiceCollection();
             ConfigureServices(services);
-            
+
             
             //This is a default dependency resolver to resolve/get registered services
             var resolver = new DefaultDependencyResolver(services.BuildServiceProvider());
@@ -48,11 +50,18 @@ namespace EscapeRoomApp
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{Action}/{id}",
                 defaults: new { id = RouteParameter.Optional });
-
             app.UseWebApi(config);
-            
+
+            string origins = GetAllowedOrigins();
+            var cors = new EnableCorsAttribute(origins, "*", "*");
+            config.EnableCors(cors);
+
         }
-        
+        private static string GetAllowedOrigins()
+        {
+            //Make a call to the database to get allowed origins and convert to a comma separated string
+            return " http://localhost:4200, https://api.sandbox.paypal.com";
+        }
         public void ConfigureServices(IServiceCollection services)
         {
             //Registering controllers(without this the controllers will NOT run, so do not remove this)

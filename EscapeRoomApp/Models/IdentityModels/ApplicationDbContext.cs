@@ -9,7 +9,7 @@ namespace EscapeRoomApp.Models.IdentityModels
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("Connect", throwIfV1Schema: false)
         {
         }
 

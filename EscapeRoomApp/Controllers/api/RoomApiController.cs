@@ -24,6 +24,7 @@ namespace EscapeRoomApp.Controllers.api
         }
 
         [HttpGet]
+        [Authorize(Users = "Auth@gmail.com")]
         public IEnumerable<Room> GetRooms()
         {
             return UnitOfWork.Rooms.GetAll().ToList();

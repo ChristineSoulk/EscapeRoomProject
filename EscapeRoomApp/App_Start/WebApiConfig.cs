@@ -18,7 +18,7 @@ namespace EscapeRoomApp
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
-            
+            config.Filters.Add(new AuthorizeAttribute());
             string origins = GetAllowedOrigins();
             var cors = new EnableCorsAttribute(origins, "*", "*");
             config.EnableCors(cors);
@@ -26,13 +26,6 @@ namespace EscapeRoomApp
 
             // Web API routes
             //config.MapHttpAttributeRoutes();
-           
-
-            //config.Routes.MapHttpRoute(
-            //    name: "DefaultApi",
-            //    routeTemplate: "api/{controller}/{Action}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
 
             
         }
