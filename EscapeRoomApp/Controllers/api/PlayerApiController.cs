@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace EscapeRoomApp.Controllers.api
 {
-    public class PlayerApiController : BaseClassApiController
+    public class PlayerApiController : BaseApiController
     {
         [HttpGet]
         public IEnumerable<Player> GetPlayers()
