@@ -36,6 +36,7 @@ namespace Infrastructure.Services
 
         public Reservation MapReservation(ReservationViewModel model)
         {
+            TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("GTB Standard Time");
             Reservation reservation = new Reservation();
             model.Room = UnitOfWork.Rooms.GetById(model.RoomId);
             reservation.RoomId = model.RoomId;
@@ -43,11 +44,15 @@ namespace Infrastructure.Services
             reservation.LastName = model.LastName;
             reservation.NumberOfPlayers = model.NumberOfPlayers;
             reservation.GameDate = model.GameDate;
-            reservation.GameTime = model.GameTime;
+            reservation.GameTime = TimeZoneInfo.ConvertTime(model.GameTime, tz);
             reservation.TotalPrice = reservation.CalculationTotalPrice(model.Room.StartingPricePerPerson, model.Room.DiscountPerPerson, model.NumberOfPlayers);
             reservation.IsPayed = model.IsPayed;
 
             return reservation;
         }
+
+
+       
+
     }
 }

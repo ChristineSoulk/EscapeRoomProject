@@ -25,7 +25,6 @@ namespace EscapeRoomApp
 
             config.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new StringEnumConverter());
 
-
             // Web API routes
             //config.MapHttpAttributeRoutes();
 

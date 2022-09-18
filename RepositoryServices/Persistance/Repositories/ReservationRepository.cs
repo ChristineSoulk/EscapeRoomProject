@@ -22,17 +22,10 @@ namespace RepositoryServices.Persistance.Repositories
             return reservationList;
             
         }
-        //public IEnumerable<Reservation> GetDatesOfReservations()
-        //{
-
-        //    //var listDates = model.Select(x => new { x.RoomId,x.GameDayHour}).ToArray().Select(x => new Reservation() { RoomId = x.RoomId, GameDayHour = x.GameDayHour});
 
 
-        //    //return listDates;
-        //}
         
 
-     
-
+      
     }
 }

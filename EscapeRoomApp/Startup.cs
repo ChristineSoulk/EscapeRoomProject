@@ -19,6 +19,8 @@ namespace EscapeRoomApp
             ConfigureAuth(app);
             app.MapSignalR();
 
+           // app.UseMiddleware<RequestResponseTimeZoneConverter>();
+
             var services = new ServiceCollection();
             ConfigureServices(services);
 
@@ -40,6 +42,8 @@ namespace EscapeRoomApp
             //Registering the rest of the services.
             services.AddTransient<IPaypalPaymentService, PaypalPaymentService>();
             services.AddTransient<IReservationService, ReservationService>();
+
+            
         }
     }
 }

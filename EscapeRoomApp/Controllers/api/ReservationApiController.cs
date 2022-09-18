@@ -14,9 +14,9 @@ namespace EscapeRoomApp.Controllers.api
     {
         private readonly IReservationService _reservationService;
 
-        public ReservationApiController(IReservationService reservationService)
+        public ReservationApiController()
         {
-            _reservationService = reservationService;
+            _reservationService = new ReservationService();
         }
 
         [HttpGet]
@@ -24,6 +24,23 @@ namespace EscapeRoomApp.Controllers.api
         {
             return UnitOfWork.Reservations.GetAll().ToList();
         }
+
+
+        [HttpGet]
+        public IEnumerable<Reservation> GetReservationsByRoom(int? roomId)
+        {
+            if (roomId is null)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+            var room = UnitOfWork.Rooms.GetById(roomId);
+            if (room is null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            return db.Reservations.Where(x => x.RoomId == roomId).ToList();   
+        }
+
         [HttpPost]
         public IHttpActionResult Post(ReservationViewModel model)
         {

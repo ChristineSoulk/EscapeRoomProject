@@ -342,6 +342,7 @@
     <Folder Include="Views\CardPayment\" />
     <Folder Include="Views\PlayerApi\" />
     <Folder Include="Views\Player\" />
+    <Folder Include="Views\ReservationChartModelApi\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -16,10 +16,11 @@ namespace Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int NumberOfPlayers { get; set; }
-        [NotMapped]
+        
         public DateTime GameDate { get; set; }
-        [NotMapped]
+        
         public DateTime GameTime { get; set; }
+     
 
         private DateTime _gameDayHour;
 

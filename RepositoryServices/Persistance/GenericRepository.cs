@@ -35,6 +35,7 @@ namespace RepositoryServices.Persistance
             return model.Find(id);
         }
 
+
         public void Insert(T obj)
         {
             model.Add(obj);

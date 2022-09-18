@@ -29,8 +29,7 @@ namespace EscapeRoomApp.Controllers
             var room = db.Rooms.Find(roomId);
             DateTime playDate = Convert.ToDateTime(gameDate);
             DateTime playTime = Convert.ToDateTime(gameTime);
-            DateTime newTime = playTime.AddHours(-3);
-            var reservation = new Reservation() { Room = room, RoomId = room.Id, FirstName = firstName, LastName = lastName, NumberOfPlayers = numberOfPlayers, GameDate = playDate, GameTime = newTime };
+            var reservation = new Reservation() { Room = room, RoomId = room.Id, FirstName = firstName, LastName = lastName, NumberOfPlayers = numberOfPlayers, GameDate = playDate, GameTime = playTime };
             reservation.TotalPrice = reservation.CalculationTotalPrice(room.StartingPricePerPerson, room.DiscountPerPerson, numberOfPlayers);
             return View(reservation);
         }
@@ -130,7 +129,6 @@ namespace EscapeRoomApp.Controllers
                 if (reservationToBeAdded != null)
                 {
                     reservationToBeAdded.IsPayed = true;
-                    reservationToBeAdded.GameTime = reservationToBeAdded.GameTime.AddHours(-3);
                     _reservationService.Create(reservationToBeAdded);
 
                     //Cleanup
