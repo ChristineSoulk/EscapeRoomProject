@@ -32,6 +32,8 @@ namespace EscapeRoomApp.Providers
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "http://localhost:4200" });
+
             ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
 
             if (user == null)
@@ -39,6 +41,8 @@ namespace EscapeRoomApp.Providers
                 context.SetError("invalid_grant", "The user name or password is incorrect.");
                 return;
             }
+
+            
 
             ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager,
                OAuthDefaults.AuthenticationType);

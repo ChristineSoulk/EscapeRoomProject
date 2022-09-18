@@ -9,7 +9,7 @@ namespace EscapeRoomApp.Models.IdentityModels
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("Connect", throwIfV1Schema: false)
         {
         }
 
@@ -17,7 +17,5 @@ namespace EscapeRoomApp.Models.IdentityModels
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<Entities.Room> Rooms { get; set; }
     }
 }

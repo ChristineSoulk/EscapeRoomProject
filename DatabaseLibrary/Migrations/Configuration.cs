@@ -2,6 +2,7 @@ namespace DatabaseLibrary.Migrations
 {
     using Entities;
     using Entities.Enums;
+    using Entities.Models;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -259,45 +260,51 @@ namespace DatabaseLibrary.Migrations
             {
                 FirstName = "Xristina",
                 LastName = "Soulkana",
-                Email = "eleutherosskopeuths1@bootcamp.com",
+                Email = "christineslkn@gmail.com",
                 PhoneNumber = "6956844367",
+                IsSubscribed = true
             };
             Player p2 = new Player()
             {
                 FirstName = "Apostolis",
                 LastName = "Sandalidis",
-                Email = "Mastoras@bootcamp.com",
+                Email = "apostolissn@gmail.com",
                 PhoneNumber = "6954879658",
+                IsSubscribed = true
             };
             Player p3 = new Player()
             {
                 FirstName = "Alexandra",
                 LastName = "Kefalloniti",
-                Email = "eleutherosskopeuths2@bootcamp.com",
+                Email = "marianta_86@windowslive.com",
                 PhoneNumber = "6985645757",
+                IsSubscribed = true
             };
             Player p4 = new Player()
             {
                 FirstName = "Kostas",
                 LastName = "Fiotakis",
-                Email = "Kallitexnis@bootcamp.com",
+                Email = "fiotiskostas@gmail.com",
                 PhoneNumber = "6925346545",
+                IsSubscribed = true
             };
             Player p5 = new Player()
             {
                 FirstName = "Stefanos",
                 LastName = "Ventis",
-                Email = "tralalitralalo@bootcamp.com",
+                Email = "steveventis@gmail.com",
                 PhoneNumber = "6985323218",
+                IsSubscribed = true
             };
             Player p6 = new Player()
             {
                 FirstName = "Manos",
                 LastName = "Vordakis",
-                Email = "tramparoufas@gmail.com",
+                Email = "manosvordakis@gmail.com",
                 PhoneNumber = "6954685487",
+                IsSubscribed = true
             };
-            context.Players.AddOrUpdate(p1, p2, p3, p4, p5, p6);
+            context.Players.AddOrUpdate(x => x.Email, p1, p2, p3, p4, p5, p6);
             
             context.SaveChanges();
 

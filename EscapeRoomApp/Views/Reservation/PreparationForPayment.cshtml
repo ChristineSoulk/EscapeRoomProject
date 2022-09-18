@@ -1,0 +1,68 @@
+﻿@model Entities.Models.Booking
+
+@{
+    ViewBag.Title = "PreparationForPayment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MakeBooking</h2>
+
+<form id="kati" method="post">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.RoomId, Model.RoomId)
+    @Html.HiddenFor(m => m.Room, Model.Room)
+    <h6>You are making a Booking for room @Model.Room.Title</h6>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FirstName)
+        @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter firstname" } })
+        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(t => t.LastName)
+        @Html.EditorFor(t => t.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter lastname" } })
+        @Html.ValidationMessageFor(t => t.LastName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.GameDate)
+        @Html.EditorFor(m => m.GameDate, new { HtmlAttributes = new { @class = "form-control", type = "date" } })
+        @Html.ValidationMessageFor(m => m.GameDate, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.DropDownListFor(m => m.GameTime, ViewBag.HourList as IEnumerable<SelectListItem>)
+        @Html.ValidationMessageFor(m => m.GameTime, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <br />
+    <div>
+        @Html.LabelFor(m => m.NumberOfPlayers)
+        @Html.DropDownListFor(m => m.NumberOfPlayers, Enumerable.Range(2, Model.Room.Capacity - 1).Select(i => new SelectListItem
+        {
+            Text = i.ToString() + " ApplicationUsers / "
+       + (Model.NumberOfPlayers > 2 ? (Model.Room.StartingPricePerPerson * i) - (Model.Room.StartingPricePerPerson * i * Model.Room.DiscountPerPerson)
+                  : Model.Room.StartingPricePerPerson * i) + "EUR",
+            Value = i.ToString()
+        }))
+        @Html.ValidationMessageFor(m => m.NumberOfPlayers, "", new { @class = "text-danger" })
+    </div>
+   
+    <br />
+    <br />
+    <input class="btn btn-success" type="submit" value="Proceed to Checkout" />
+    <!--<a--> @*onclick="$('form').submit()"*@
+    <!--href='@Url.Action("PaymentWithPaypal", "Booking")'>
+        <img src='@Url.Content("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif")'
+             Width="145" AlternateText="Check out with PayPal"
+             BackColor="Transparent" BorderWidth="0" />
+
+    </a>-->
+
+
+    <input type="submit" formaction="@Url.Action("CreatePayment", "Booking")"  name="PaymentWithPaypal" value="Plhrwne Papara" />
+
+    <input class="btn btn-warning" type="reset" value="Clear" />
+</form>
+
+<br />
+<br />
+<br />
+<a class="btn btn-info" href="/Room/Index">Go Back</a>

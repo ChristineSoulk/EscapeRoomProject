@@ -8,6 +8,8 @@ using RepositoryServices.Persistance;
 using DatabaseLibrary;
 using Entities.Exceptions;
 using Entities.Models;
+using Entities.ViewModels;
+using Entities.PaypalModels;
 
 namespace Infrastructure.Services
 {
@@ -18,21 +20,21 @@ namespace Infrastructure.Services
         private readonly ApplicationContext _dbContext = new ApplicationContext();
         private readonly UnitOfWork _unitOfWork;
         private readonly APIContext _paypalApiContext;
-        private readonly IReservationService _reservationService;
+        private readonly IBookingService _BookingService;
 
-        public PaypalPaymentService(IReservationService reservationService)
+        public PaypalPaymentService(IBookingService BookingService)
         {
             _unitOfWork = new UnitOfWork(_dbContext);
             _paypalApiContext = PaypalConfiguration.GetAPIContext();
-            _reservationService = reservationService;
+            _BookingService = BookingService;
         }
 
-        public CreatedPaymentModel CreatePaypalPayment(ReservationViewModel model, string requestUrlScheme, string requestUrlAuthority, string cancel = null)
+        public CreatedPaymentModel CreatePaypalPayment(BookingViewModel model, string requestUrlScheme, string requestUrlAuthority, string cancel = null)
         {
             try
             {
                 //Here we pass the endpoint that Paypal will hit after creating the payment in order to execute it.
-                string baseURI = requestUrlScheme + "://" + requestUrlAuthority + "/Reservation/ExecutePayment?";
+                string baseURI = requestUrlScheme + "://" + requestUrlAuthority + "/api/PaypalApi/ExecutePayment?";
 
                 var guid = Convert.ToString(new Random().Next(100000));
 
@@ -80,10 +82,10 @@ namespace Infrastructure.Services
             }
         }
 
-        private Payment CreatePayment(APIContext apiContext, string redirectUrl, ReservationViewModel rvm)
+        private Payment CreatePayment(APIContext apiContext, string redirectUrl, BookingViewModel rvm)
         {
             var room = _unitOfWork.Rooms.GetById(rvm.RoomId);
-            var reservation = _reservationService.MapReservation(rvm);
+            var Booking = _BookingService.MapBooking(rvm);
 
             var itemList = new ItemList()
             {
@@ -95,7 +97,7 @@ namespace Infrastructure.Services
             {
                 name = room.Title,
                 currency = "EUR",
-                price = reservation.CalculationTotalPrice(room.StartingPricePerPerson, room.DiscountPerPerson, reservation.NumberOfPlayers).ToString("0.00"),
+                price = Booking.CalculationTotalPrice(room.StartingPricePerPerson, room.DiscountPerPerson, Booking.NumberOfPlayers).ToString("0.00"),
                 quantity = "1",
                 sku = "sku"
             });
@@ -117,7 +119,7 @@ namespace Infrastructure.Services
             {
                 tax = "1",
                 shipping = "0.00",
-                subtotal = reservation.CalculationTotalPrice(room.StartingPricePerPerson, room.DiscountPerPerson, reservation.NumberOfPlayers).ToString("0.00")
+                subtotal = Booking.CalculationTotalPrice(room.StartingPricePerPerson, room.DiscountPerPerson, Booking.NumberOfPlayers).ToString("0.00")
             };
 
             //Final amount with details  

@@ -19,12 +19,15 @@ using EscapeRoomApp.Results;
 using EscapeRoomApp.Models.AccountViewModels;
 using EscapeRoomApp.Models.AccountBindingModels;
 using EscapeRoomApp.Models.IdentityModels;
+using EscapeRoomApp.Controllers.api;
+using System.Web.Http.Cors;
 
 namespace EscapeRoomApp.Controllers
 {
+    [EnableCorsAttribute(origins: "http://localhost:4200", "*", "*")]
     [Authorize]
     [RoutePrefix("api/Account")]
-    public class AccountController : ApiController
+    public class AccountController : BaseApiController
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
@@ -331,7 +334,13 @@ namespace EscapeRoomApp.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() 
+            { 
+                UserName = model.Email, 
+                Email = model.Email,
+                
+                
+            };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

@@ -1,4 +1,4 @@
-﻿using Entities;
+﻿using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -23,7 +23,7 @@ namespace DatabaseLibrary
 
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<Player> Players { get; set; }
-        public virtual DbSet<Reservation> Reservations { get; set; }
+        public virtual DbSet<Booking> Bookings { get; set; }
 
         
 
