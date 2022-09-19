@@ -43,7 +43,6 @@ namespace Infrastructure.Services
             var room = UnitOfWork.Rooms.GetById(model.RoomId);
             model.Room = room;
             Booking.RoomId = model.RoomId;
-            Booking.Room = model.Room;
             Booking.FirstName = model.FirstName;
             Booking.LastName = model.LastName;
             Booking.Email = model.Email;
