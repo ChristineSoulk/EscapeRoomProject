@@ -9,6 +9,7 @@
 
 <h2 class="title">Booking Detais for @Model.Room.Title</h2>
 
+<p>@Model.IsSubscribed</p>
 
 <p><strong>First Name: </strong>   @Model.FirstName</p>
 <br />
@@ -39,9 +40,10 @@
     @Html.HiddenFor(m => m.NumberOfPlayers, Model.NumberOfPlayers)
     @Html.HiddenFor(m => m.IsSubscribed, Model.IsSubscribed)
 
-    <input type="image" formaction="@Url.Action("CreatePayment", "Booking")" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
+    <input type="image" formaction="@Url.Action("CreatePayment", "PaypalPayment")" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
 </form>
 <br />
 <br />
 <p><a href="http://localhost:4200/Book/@Model.RoomId" class="btn btn-danger">Go Back</a></p>
+
 

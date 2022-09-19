@@ -17,7 +17,7 @@ using System.Web.Mvc;
 
 namespace EscapeRoomApp.Controllers
 {
-    public class BookingController : Controller
+    public class PaypalPaymentController : Controller
     {
         private readonly IPaypalPaymentService _paypalPaymentsService;
         private readonly IBookingService _BookingService;
@@ -25,7 +25,7 @@ namespace EscapeRoomApp.Controllers
         protected ApplicationContext db = new ApplicationContext();
         protected UnitOfWork UnitOfWork;
 
-        public BookingController()
+        public PaypalPaymentController()
         {
             UnitOfWork = new UnitOfWork(db);
             _paypalPaymentsService = new PaypalPaymentService(_BookingService);
@@ -33,26 +33,27 @@ namespace EscapeRoomApp.Controllers
             _BookingService = new BookingService();
         }
 
-        public ActionResult PreparationForPayment(int roomId)
+
+        public ActionResult PreparationForPayment(int roomId, string firstName, string lastName, string email, string phoneNumber, int numberOfPlayers, string gameDate, string gameTime, string subscribed)
         {
             var room = UnitOfWork.Rooms.GetById(roomId);
-            var booking = new Booking();
-            booking.RoomId = roomId;
-            booking.Room = room;
-
-            DateTime startTime = DateTime.Parse("18:00:00");
-            DateTime endTime = DateTime.Parse("22:00:00");
-
-            List<SelectListItem> list = new List<SelectListItem>();
-            while (startTime <= endTime)
+            DateTime playDate = Convert.ToDateTime(gameDate);
+            DateTime playTime = Convert.ToDateTime(gameTime);
+            bool subscribe = subscribed == "true" ? true : false; 
+            var booking = new Booking()
             {
-                list.Add(new SelectListItem() { Text = startTime.ToShortTimeString() + "-" + startTime.AddMinutes(room.Duration).ToShortTimeString(), Value = startTime.ToShortTimeString() });
-                startTime = startTime.AddMinutes(room.Duration);
-
-            }
-
-            ViewBag.HourList = list;
-
+                Room = room,
+                RoomId = room.Id,
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email,
+                PhoneNumber = phoneNumber,
+                NumberOfPlayers = numberOfPlayers,
+                GameDate = playDate,
+                GameTime = playTime,
+                IsSubscribed = subscribe
+            };
+            booking.TotalPrice = booking.CalculationTotalPrice(room.StartingPricePerPerson, room.DiscountPerPerson, numberOfPlayers);
             return View(booking);
         }
 

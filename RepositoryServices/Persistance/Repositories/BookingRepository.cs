@@ -25,7 +25,10 @@ namespace RepositoryServices.Persistance.Repositories
         }
 
 
-        
+        public List<Booking> GetBookingsByRoom(int roomId)
+        {
+            return model.Where(x => x.RoomId == roomId).ToList();
+        }
 
       
     }

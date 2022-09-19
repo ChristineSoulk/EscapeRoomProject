@@ -32,7 +32,23 @@ namespace EscapeRoomApp.Controllers.api
         [HttpGet]
         public IEnumerable<Booking> GetAllBookings()
         {
-            return UnitOfWork. Bookings.GetAll().ToList();
+            return UnitOfWork.Bookings.GetAll().ToList();
+        }
+
+
+        [HttpGet]
+        public IEnumerable<Booking> GetBookingsByRoomId(int? roomId)
+        {
+            if (roomId is null)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+            var room = UnitOfWork.Rooms.GetById(roomId);
+            if (room is null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            return UnitOfWork.Bookings.GetBookingsByRoom(room.Id);
         }
 
         [HttpPost]

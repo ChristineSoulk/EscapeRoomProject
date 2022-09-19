@@ -86,6 +86,8 @@ namespace Infrastructure.Services
         //Creating Email Body for Booking details and new rooms
         public string CreateEmailBodyForBooking(BookingViewModel Booking)
         {
+            TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("GTB Standard Time");
+            var time = TimeZoneInfo.ConvertTime(Booking.GameTime, tz);
             var room = _unitOfWork.Rooms.GetById(Booking.RoomId);
                 string body = $@"<html>
                                 <head>    
@@ -94,7 +96,7 @@ namespace Infrastructure.Services
                                 <body>
                                     <h3>Booking Details</h3>
                                     <p>Dear {Booking.FirstName} {Booking.LastName}</p>
-                                    <p>You have made a Booking for room {room.Title} on {Booking.GameDate.ToShortDateString()} at {Booking.GameTime.ToShortTimeString()} pm.</p>
+                                    <p>You have made a Booking for room {room.Title} on {Booking.GameDate.ToShortDateString()} at {time.ToShortTimeString()} pm.</p>
                                     <br />
                                     <p>Anikitoi,Peoplecert CB16</p>
                                 </body>

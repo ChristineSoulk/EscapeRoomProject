@@ -11,7 +11,7 @@ namespace RepositoryServices.Core.Repositories
     public interface IBookingRepository : IGenericRepository<Booking>
     {
         List<Booking> GetReservations();
-       
-        
+
+        List<Booking> GetBookingsByRoom(int roomId);
     }
 }

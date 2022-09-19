@@ -13,6 +13,7 @@ using Infrastructure.ObserverManager;
 using Infrastructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin;
+using Newtonsoft.Json.Converters;
 using Owin;
 
 [assembly: OwinStartup(typeof(EscapeRoomApp.Startup))]
@@ -57,6 +58,7 @@ namespace EscapeRoomApp
             string origins = GetAllowedOrigins();
             var cors = new EnableCorsAttribute(origins, "*", "*");
             config.EnableCors(cors);
+            config.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new StringEnumConverter());
 
         }
         private static string GetAllowedOrigins()

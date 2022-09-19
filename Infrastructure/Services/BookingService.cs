@@ -38,15 +38,21 @@ namespace Infrastructure.Services
 
         public Booking MapBooking(BookingViewModel model)
         {
+            TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("GTB Standard Time");
             Booking Booking = new Booking();
-            model.Room = UnitOfWork.Rooms.GetById(model.RoomId);
+            var room = UnitOfWork.Rooms.GetById(model.RoomId);
+            model.Room = room;
             Booking.RoomId = model.RoomId;
+            Booking.Room = model.Room;
             Booking.FirstName = model.FirstName;
             Booking.LastName = model.LastName;
+            Booking.Email = model.Email;
+            Booking.PhoneNumber = model.PhoneNumber;
             Booking.NumberOfPlayers = model.NumberOfPlayers;
             Booking.GameDate = model.GameDate;
-            Booking.GameTime = model.GameTime;
-            Booking.TotalPrice = Booking.CalculationTotalPrice(model.Room.StartingPricePerPerson, model.Room.DiscountPerPerson, model.NumberOfPlayers);
+            Booking.GameTime = TimeZoneInfo.ConvertTime(model.GameTime, tz);
+            Booking.TotalPrice = Booking.CalculationTotalPrice(room.StartingPricePerPerson, room.DiscountPerPerson, model.NumberOfPlayers);
+            Booking.IsSubscribed = model.IsSubscribed;
             Booking.IsPayed = model.IsPayed;
 
             return Booking;
