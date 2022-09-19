@@ -34,7 +34,7 @@ namespace Infrastructure.Services
             try
             {
                 //Here we pass the endpoint that Paypal will hit after creating the payment in order to execute it.
-                string baseURI = requestUrlScheme + "://" + requestUrlAuthority + "/PaypalPayment/ExecutePayment?";
+                string baseURI = requestUrlScheme + "://" + requestUrlAuthority + "/Paypal/ExecutePayment?";
 
                 var guid = Convert.ToString(new Random().Next(100000));
 

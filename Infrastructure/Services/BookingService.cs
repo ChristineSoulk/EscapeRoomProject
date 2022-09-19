@@ -41,9 +41,7 @@ namespace Infrastructure.Services
             TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("GTB Standard Time");
             Booking Booking = new Booking();
             var room = UnitOfWork.Rooms.GetById(model.RoomId);
-            model.Room = room;
             Booking.RoomId = model.RoomId;
-            Booking.Room = model.Room;
             Booking.FirstName = model.FirstName;
             Booking.LastName = model.LastName;
             Booking.Email = model.Email;

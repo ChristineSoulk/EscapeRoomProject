@@ -17,7 +17,7 @@ using System.Web.Mvc;
 
 namespace EscapeRoomApp.Controllers
 {
-    public class PaypalPaymentController : Controller
+    public class PaypalController : Controller
     {
         private readonly IPaypalPaymentService _paypalPaymentsService;
         private readonly IBookingService _BookingService;
@@ -25,16 +25,16 @@ namespace EscapeRoomApp.Controllers
         protected ApplicationContext db = new ApplicationContext();
         protected UnitOfWork UnitOfWork;
 
-        public PaypalPaymentController()
+        public PaypalController(IPaypalPaymentService paypalPaymentsService, IBookingService bookingService, IEmailService emailService)
         {
             UnitOfWork = new UnitOfWork(db);
-            _paypalPaymentsService = new PaypalPaymentService(_BookingService);
-            _email = new EmailService();
-            _BookingService = new BookingService();
+            _paypalPaymentsService = paypalPaymentsService; 
+            _email = emailService;
+            _BookingService = bookingService;
         }
 
-
-        public ActionResult PreparationForPayment(int roomId, string firstName, string lastName, string email, string phoneNumber, int numberOfPlayers, string gameDate, string gameTime, string subscribed)
+        
+        public ActionResult Index(int roomId, string firstName, string lastName, string email, string phoneNumber, int numberOfPlayers, string gameDate, string gameTime, string subscribed)
         {
             var room = UnitOfWork.Rooms.GetById(roomId);
             DateTime playDate = Convert.ToDateTime(gameDate);
@@ -83,7 +83,7 @@ namespace EscapeRoomApp.Controllers
 
         }
 
-        [HttpPost]
+        
         //This is the second and final phase of paypal payment
         public ActionResult ExecutePayment(string Cancel = null)
         {

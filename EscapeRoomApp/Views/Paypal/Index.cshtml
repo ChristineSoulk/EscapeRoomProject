@@ -1,11 +1,8 @@
 ﻿@model Entities.Models.Booking
 
 @{
-    ViewBag.Title = "PreparationForPayment";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
 }
-
-@*<h2>PreparationForPayment douleuei</h2>*@
 
 <h2 class="title">Booking Detais for @Model.Room.Title</h2>
 
@@ -39,9 +36,8 @@
     @Html.HiddenFor(m => m.NumberOfPlayers, Model.NumberOfPlayers)
     @Html.HiddenFor(m => m.IsSubscribed, Model.IsSubscribed)
 
-    <input type="image" formaction="@Url.Action("CreatePayment", "Booking")" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
+    <input type="image" formaction="@Url.Action("CreatePayment", "Paypal")" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
 </form>
 <br />
 <br />
 <p><a href="http://localhost:4200/Book/@Model.RoomId" class="btn btn-danger">Go Back</a></p>
-

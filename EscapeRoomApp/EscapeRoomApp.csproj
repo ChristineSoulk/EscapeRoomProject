@@ -258,7 +258,7 @@
     <Compile Include="Controllers\api\PlayerApiController.cs" />
     <Compile Include="Controllers\api\BookingApiController.cs" />
     <Compile Include="Controllers\api\RoomApiController.cs" />
-    <Compile Include="Controllers\PaypalPaymentController.cs" />
+    <Compile Include="Controllers\PaypalController.cs" />
     <Compile Include="Controllers\SigRContactController.cs" />
     <Compile Include="DIhelpers\DefaultDependencyResolver.cs" />
     <Compile Include="Global.asax.cs">
@@ -379,18 +379,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
     <Content Include="Views\SigRContact\Index.cshtml" />
-    <Content Include="Views\Reservation\Index.cshtml" />
-    <Content Include="Views\Reservation\PreparationForPayment.cshtml" />
-    <Content Include="Views\Reservation\Failure.cshtml" />
-    <Content Include="Views\Reservation\Success.cshtml" />
-    <Content Include="Views\Booking\PreparationForPayment.cshtml" />
-    <Content Include="Views\PaypalPayment\PreparationForPayment.cshtml" />
-    <Content Include="Views\PaypalPayment\Success.cshtml" />
-    <Content Include="Views\PaypalPayment\Failure.cshtml" />
+    <Content Include="Views\Paypal\Index.cshtml" />
+    <Content Include="Views\Paypal\Success.cshtml" />
+    <Content Include="Views\Paypal\Failure.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Paypal\" />
     <Folder Include="Views\PlayerApi\" />
     <Folder Include="Views\Player\" />
   </ItemGroup>
