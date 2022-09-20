@@ -60,9 +60,8 @@ namespace EscapeRoomApp.Controllers.api
             {
                 var BookingToBeAdded = _BookingService.MapBooking(model);
                 BookingToBeAdded.IsPayed = false;
-                _email.SendEmailForBooking(model);
                 UnitOfWork.Bookings.Insert(BookingToBeAdded);
-
+                _email.SendEmailForBooking(model);
             }
             catch (Exception ex)
             {

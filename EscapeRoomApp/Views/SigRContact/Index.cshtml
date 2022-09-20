@@ -7,14 +7,17 @@
 <div id="chat">
     <h2>Chat</h2>
     <div class="container">
+        <ul id="discussion">
+        </ul>
+        <br/>
         <input type="text" id="message" />
         <input type="button" id="sendmessage" value="Send" />
         <input type="hidden" id="displayname" />
-        <br />
-        <ul id="discussion">
-        </ul>
+        <br/>
+
     </div>
 </div>
+<p class="btnBack"><a href="http://localhost:4200/Home" class="btn btn-primary">Go back</a></p>
 @section scripts {
     <!--Script references. -->
     <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
