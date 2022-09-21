@@ -1,5 +1,6 @@
 ﻿using DatabaseLibrary;
 using Entities;
+using Entities.Models;
 using Entities.ViewModels;
 using Infrastructure.Interfaces;
 using RepositoryServices.Persistance;
@@ -31,10 +32,10 @@ namespace Infrastructure.Services
 
         }
 
-        public void SendEmailForNewRoom(string email)
+        public void SendEmailForNewRoom(string email,Room room)
         {
             string subject = "The Escape Room Project - New Room Added!";
-            string htmlBody = this.CreateEmailBodyForNewRoom();
+            string htmlBody = this.CreateEmailBodyForNewRoom(room);
             MailMessage mailMessage = this.ComposeEmail(subject, htmlBody, email);
             this.MailTransfer(mailMessage);
         }
@@ -105,7 +106,7 @@ namespace Infrastructure.Services
                 return body;
         }
 
-        public string CreateEmailBodyForNewRoom()
+        public string CreateEmailBodyForNewRoom(Room room)
         {
                 string body = $@"<html>
                                 <head>    
@@ -113,7 +114,9 @@ namespace Infrastructure.Services
                                 </head>
                                 <body>
                                     <h3>New Room Avalaible</h3>
-                                    <p>Test</p>
+                                    <p>{room.Title}</p>
+                                    <p>{room.Genre}</p>
+                                    <p>{room.Duration}</p>
                                     <p>Anikitoi,Peoplecert CB16</p>
                                 </body>
                             </html>";

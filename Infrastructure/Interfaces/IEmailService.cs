@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Entities.Models;
 using Entities.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace Infrastructure.Interfaces
     public interface IEmailService
     {
         void SendEmailForBooking(BookingViewModel Booking);
-        void SendEmailForNewRoom(string email);
+        void SendEmailForNewRoom(string email, Room room);
         List<string> GetEmailAddressesOfSubscribers();
         void ContactEmail(ContactViewModel contactmodel);
     }

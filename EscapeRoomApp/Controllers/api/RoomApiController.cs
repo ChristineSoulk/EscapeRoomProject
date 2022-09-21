@@ -51,7 +51,7 @@ namespace EscapeRoomApp.Controllers.api
             if (ModelState.IsValid)
             {
                 UnitOfWork.Rooms.Insert(room);
-                _notifier.NotifySubscribersForNewRoom();
+                _notifier.NotifySubscribersForNewRoom(room);
             }
             else
             {

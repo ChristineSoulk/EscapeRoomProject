@@ -1,4 +1,5 @@
 ﻿using DatabaseLibrary;
+using Entities.Models;
 using Infrastructure.Interfaces;
 using Infrastructure.Services;
 using RepositoryServices.Persistance;
@@ -21,11 +22,11 @@ namespace Infrastructure.ObserverManager
             unitOfWork = new UnitOfWork(db);
             _emailService = emailService;
         }
-        public void NotifySubscribersForNewRoom()
+        public void NotifySubscribersForNewRoom(Room room)
         {
             var emailList = _emailService.GetEmailAddressesOfSubscribers();
 
-            emailList.ForEach(x => _emailService.SendEmailForNewRoom(x));
+            emailList.ForEach(x => _emailService.SendEmailForNewRoom(x,room));
 
         }
     
