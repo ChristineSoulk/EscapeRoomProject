@@ -302,9 +302,18 @@ namespace DatabaseLibrary.Migrations
                 LastName = "Vordakis",
                 Email = "manosvordakis@gmail.com",
                 PhoneNumber = "6954685487",
-                IsSubscribed = true
+                IsSubscribed = false
             };
-            context.Players.AddOrUpdate(x => x.Email, p1, p2, p3, p4, p5, p6);
+
+            Player p7 = new Player()
+            {
+                FirstName = "Admin",
+                LastName = "Administrator",
+                Email = "admin@escaperoom.com",
+                PhoneNumber = "6987654321",
+                IsSubscribed = false
+            };
+            context.Players.AddOrUpdate(x => x.Email, p1, p2, p3, p4, p5, p6, p7);
             
             context.SaveChanges();
 

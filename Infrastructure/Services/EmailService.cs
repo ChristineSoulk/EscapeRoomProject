@@ -114,9 +114,11 @@ namespace Infrastructure.Services
                                 </head>
                                 <body>
                                     <h3>New Room Avalaible</h3>
-                                    <p>{room.Title}</p>
-                                    <p>{room.Genre}</p>
-                                    <p>{room.Duration}</p>
+                                    <p>Check out our new room {room.Title}!</p>
+                                    <p>Genre: {room.Genre}</p>
+                                    <p>Duration: {room.Duration}</p>
+                                    <p>Visit our site for more details!</p>
+                                    <br/>
                                     <p>Anikitoi,Peoplecert CB16</p>
                                 </body>
                             </html>";
