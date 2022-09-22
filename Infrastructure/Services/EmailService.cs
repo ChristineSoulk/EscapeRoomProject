@@ -116,7 +116,7 @@ namespace Infrastructure.Services
                                     <h3>New Room Avalaible</h3>
                                     <p>Check out our new room {room.Title}!</p>
                                     <p>Genre: {room.Genre}</p>
-                                    <p>Duration: {room.Duration}</p>
+                                    <p>Duration: {room.Duration} minutes</p>
                                     <p>Visit our site for more details!</p>
                                     <br/>
                                     <p>Anikitoi,Peoplecert CB16</p>

@@ -46,7 +46,7 @@ namespace Entities.Models
         public decimal CalculationTotalPrice(decimal startingPricePerPerson,decimal discountPerPerson,int numberOfPlayers)
         {
             return TotalPrice = (numberOfPlayers > 2 ?
-                (startingPricePerPerson * numberOfPlayers) - (discountPerPerson * numberOfPlayers * discountPerPerson) : startingPricePerPerson * numberOfPlayers);
+                (startingPricePerPerson * numberOfPlayers) - (startingPricePerPerson * numberOfPlayers * discountPerPerson) : startingPricePerPerson * numberOfPlayers);
         }
     }
 }

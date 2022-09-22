@@ -20,7 +20,7 @@
     <br />
     <p><strong>Number of Players: </strong>   @Model.NumberOfPlayers</p>
     <br />
-    <p><strong>Total price: </strong>   @Model.CalculationTotalPrice(Model.Room.StartingPricePerPerson, Model.Room.DiscountPerPerson, Model.NumberOfPlayers).ToString("F")</p>
+    <p><strong>Total price: </strong>   @Model.CalculationTotalPrice(Model.Room.StartingPricePerPerson, Model.Room.DiscountPerPerson, Model.NumberOfPlayers).ToString("F") €</p>
     <br />
 
     <form method="post">
