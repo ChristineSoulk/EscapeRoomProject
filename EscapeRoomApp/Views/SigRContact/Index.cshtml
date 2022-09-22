@@ -4,20 +4,48 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="chat">
-    <h2>Chat</h2>
-    <div class="container">
-        <ul id="discussion">
-        </ul>
-        <br/>
-        <input type="text" id="message" />
-        <input type="button" id="sendmessage" value="Send" />
-        <input type="hidden" id="displayname" />
-        <br/>
+@*<div id="chat">
+        <h2>Chat</h2>
+        <div class="container">
+            <ul id="discussion">
+            </ul>
+            <br/>
+            <input type="text" id="message" />
+            <input type="button" id="sendmessage" value="Send" />
+            <input type="hidden" id="displayname" />
+            <br/>
 
+        </div>
+    </div>*@
+
+
+<div class="col-md-8 col-xl-6 chat">
+    <div class="card">
+        <div class="card-header msg_head">
+            
+            <h2 style="color:white">Chat</h2>
+        </div>
+        <div class="card-body msg_card_body" id="discussion">
+
+        </div>
+        <div class="card-footer">
+            <div class="input-group">
+               
+                <textarea name="" class="form-control type_msg" placeholder="Type your message..." id="message"></textarea>
+                <div class="input-group-append">
+                    <button class="input-group-text send_btn" type="button" id="sendmessage"><i class="fas fa-location-arrow"></i></button>
+                    <input type="hidden" id="displayname" />
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<p class="btnBack"><a href="http://localhost:4200/Home" class="btn btn-primary">Go back</a></p>
+
+<br />
+<br />
+
+
+<p class="btnBack"><a href="http://localhost:4200/Home" class="btn btn-primary btn-lg">Go back</a></p>
 @section scripts {
     <!--Script references. -->
     <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
@@ -33,8 +61,14 @@
             // Create a function that the hub can call back to display messages.
             chat.client.addNewMessageToPage = function (name, message) {
                 // Add the message to the page.
-                $('#discussion').append('<li><strong>' + htmlEncode(name)
-                    + '</strong>: ' + htmlEncode(message) + '</li>');
+                //$('#discussion').append('<li><strong>' + htmlEncode(name)
+                //    + '</strong>: ' + htmlEncode(message) + '</li>');
+
+                $('#discussion').append(' <div class="d-flex justify-content-start mb-4" >  <div class="img_cont_msg" style="color:white">' +
+                    htmlEncode(name) + ': </div >' +
+                    '<div class="msg_cotainer">' +
+                    htmlEncode(message) +
+                    ' </div></div>');
             };
             // Get the user name and store it to prepend to messages.
             $('#displayname').val(prompt('Enter your name:', ''));
