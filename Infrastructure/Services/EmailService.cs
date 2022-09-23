@@ -42,7 +42,7 @@ namespace Infrastructure.Services
 
         public void ContactEmail(ContactViewModel contactmodel)
         {
-            string subject = $"Mail From {contactmodel.Name}";
+            string subject = $"Mail From {contactmodel.Name} <{contactmodel.Email}>";
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress(contactmodel.Email);
             mailMessage.To.Add("TheEscapeRoomProject@gmail.com");
